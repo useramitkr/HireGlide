@@ -68,9 +68,10 @@ export default HomeAnalytics;
 
 const styles = StyleSheet.create({
     wrapper: {
-        flex: 1,
+        // flex: 1,
         width: '100%',
         alignItems: 'center',
+        justifyContent: 'flex-start',
     },
     analyticsContainer: {
         padding: 20,
