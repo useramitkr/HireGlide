@@ -1,4 +1,5 @@
 import HomeAnalytics from '@/components/GlideUi/homeAnalytics';
+import ServiceBoxes from '@/components/GlideUi/serviceBoxes';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
@@ -10,9 +11,17 @@ export default function HomeScreen() {
 
       {/* Header Analytics  */}
       <HomeAnalytics />
+
+      {/* Service Boxes */}
+      <ServiceBoxes />
     </ScrollView>
   );
 }
+
+// #FFA500 Lite Orange
+// #303742 Dark Blue
+// #FFFFE0 Light Yellow
+// #0489D9 Light Blue
 
 const styles = StyleSheet.create({
   scrollContainer: {
