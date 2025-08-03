@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        height: '48%',
+        // height: '48%',
     },
     ServiceBox: {
         flex: 1,
@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        height: 180,
     },
     ServiceFooter: {
         flexDirection: 'row',
