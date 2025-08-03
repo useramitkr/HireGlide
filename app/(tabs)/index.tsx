@@ -17,7 +17,7 @@ export default function HomeScreen() {
       <StatusBar barStyle="light-content" />
 
       <View style={styles.container}>
-        <Text style={styles.heading}>Let's find you a great job!</Text>
+        <Text style={styles.heading}>Let us find you a great job!</Text>
       </View>
 
       {/* Header Analytics  */}
