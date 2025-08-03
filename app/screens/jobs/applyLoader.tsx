@@ -49,7 +49,7 @@ const ApplyLoader = () => {
       <View style={styles.content}>
         <Text style={styles.title}>Application Processing...</Text>
         <Text style={styles.description}>
-          We’re processing your application. Please wait...
+          We are processing your application. Please wait...
         </Text>
 
         <ActivityIndicator size="large" color="#0489D9" style={styles.loader} />

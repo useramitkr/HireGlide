@@ -2,11 +2,20 @@
 import HomeAnalytics from '@/components/GlideUi/homeAnalytics';
 import JobCurator from '@/components/GlideUi/jobCurator';
 import ServiceBoxes from '@/components/GlideUi/serviceBoxes';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
+
+      <Stack.Screen
+        options={{
+          headerTintColor: '#ffffff',
+        }}
+      />
+      <StatusBar barStyle="light-content" />
+
       <View style={styles.container}>
         <Text style={styles.heading}>Let's find you a great job!</Text>
       </View>
@@ -43,7 +52,7 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     paddingBottom: 8,
     paddingTop: 16,
-    backgroundColor: 'white', 
+    backgroundColor: 'white',
     width: '100%',
   },
   heading: {

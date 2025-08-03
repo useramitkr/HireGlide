@@ -63,15 +63,15 @@ const WaitScreen = () => {
                         backgroundColor: '#0489D9',
                     },
                     headerTintColor: '#ffffff',
-                    headerBackVisible: false, 
-                    gestureEnabled: false,   
+                    headerBackVisible: false,
+                    gestureEnabled: false,
                 }}
             />
             <StatusBar barStyle="light-content" />
-            
+
             <Text style={styles.title}>⏳ Application Processing...</Text>
             <Text style={styles.message}>
-                Your last application is processing! We're working on it, and it will take a moment. Please hold tight until the timer finishes, and then you'll be ready to submit again.
+                Your last application is processing! We are working on it, and it will take a moment. Please hold tight until the timer finishes, and then you will be ready to submit again.
             </Text>
             <Text style={styles.timer}>{formatTime(remainingTime)}</Text>
 
@@ -110,11 +110,24 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
     },
     timer: {
-        fontSize: 40,
-        fontWeight: 'bold',
-        color: '#ff3333',
+        fontSize: 48,
+        fontWeight: '700',
+        color: '#ffffff',
+        backgroundColor: '#0489D9',
+        paddingVertical: 20,
+        paddingHorizontal: 40,
+        borderRadius: 100,
+        overflow: 'hidden',
+        elevation: 5,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 3 },
+        shadowOpacity: 0.3,
+        shadowRadius: 6,
+        textAlign: 'center',
         marginBottom: 30,
+        minWidth: 160,
     },
+
     buttonContainer: {
         width: '100%',
         paddingHorizontal: 30,
