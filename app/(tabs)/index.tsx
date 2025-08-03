@@ -1,4 +1,6 @@
+// import BannerAds from '@/components/gAds/bannerAds';
 import HomeAnalytics from '@/components/GlideUi/homeAnalytics';
+import JobCurator from '@/components/GlideUi/jobCurator';
 import ServiceBoxes from '@/components/GlideUi/serviceBoxes';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -14,6 +16,13 @@ export default function HomeScreen() {
 
       {/* Service Boxes */}
       <ServiceBoxes />
+
+      {/* Job Curator */}
+      <JobCurator />
+
+      {/* Banner Ads */}
+      {/* <BannerAds /> */}
+
     </ScrollView>
   );
 }
