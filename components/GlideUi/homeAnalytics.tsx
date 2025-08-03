@@ -10,12 +10,24 @@ const HomeAnalytics = () => {
     const [successRate, setSuccessRate] = useState(0);
 
     useEffect(() => {
-        const randomInt = (min: number, max: number): number => Math.floor(Math.random() * (max - min + 1)) + min;
+        const randomInt = (min: number, max: number): number =>
+            Math.floor(Math.random() * (max - min + 1)) + min;
 
+        // Set initial random values immediately
         setUserApplied(randomInt(9, 23));
         setApplicationsSubmitted(randomInt(113, 461));
         setSuccessRate(randomInt(65, 94));
-    }, [])
+
+        // Then continue updating every 1 Minute
+        const interval = setInterval(() => {
+            setUserApplied(randomInt(9, 23));
+            setApplicationsSubmitted(randomInt(113, 461));
+            setSuccessRate(randomInt(65, 94));
+        }, 60000);
+
+        return () => clearInterval(interval);
+    }, []);
+
 
     return (
         <View style={styles.wrapper}>
