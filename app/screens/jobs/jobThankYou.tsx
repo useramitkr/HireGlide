@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Stack, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { FontAwesome } from '@expo/vector-icons';
+import { startThankYouTimer } from '@/utils/timerUtils';
 
 const ThankYou: React.FC = () => {
   const router = useRouter();
@@ -18,6 +19,11 @@ const ThankYou: React.FC = () => {
       return prefix + randomDigits;
     };
     setOrderId(generateOrderId());
+  }, []);
+
+  //Start Blocked Timer
+  useEffect(() => {
+    startThankYouTimer();
   }, []);
 
   return (

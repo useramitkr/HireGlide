@@ -1,7 +1,8 @@
 import { Alert, Pressable, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Stack, useRouter } from 'expo-router';
 import Checkbox from 'expo-checkbox'
+import { isBlockedByThankYouTimer } from '@/utils/timerUtils';
 
 const JobApply = () => {
 
@@ -22,6 +23,17 @@ const JobApply = () => {
     // Alert.alert('Success', 'Your application has been submitted!')
     router.push('/screens/jobs/applyLoader');
   }
+
+  //Blocked Timer
+  useEffect(() => {
+    const checkBlock = async () => {
+      const blocked = await isBlockedByThankYouTimer();
+      if (blocked) {
+        router.replace('/screens/wait'); 
+      }
+    };
+    checkBlock();
+  }, []);
 
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
