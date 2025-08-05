@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is a REST API?",
+    "answer": "A REST API is an architectural style for building web services based on HTTP methods."
+  },
+  {
+    "question": "What is Node.js?",
+    "answer": "Node.js is a runtime environment that allows executing JavaScript on the server."
+  },
+  {
+    "question": "What is middleware in Express?",
+    "answer": "Middleware are functions that have access to request and response objects in Express."
+  },
+  {
+    "question": "What is the difference between SQL and NoSQL?",
+    "answer": "SQL databases are relational and structured, while NoSQL databases are non-relational and flexible."
+  },
+  {
+    "question": "What is JWT?",
+    "answer": "JWT (JSON Web Token) is a secure way to transmit information between parties as a JSON object."
+  }
+]

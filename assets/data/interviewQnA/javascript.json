@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What is React?",
+    "answer": "React is a JavaScript library for building user interfaces, developed by Facebook."
+  },
+  {
+    "question": "What are hooks in React?",
+    "answer": "Hooks are functions that let you use state and lifecycle features in functional components."
+  },
+  {
+    "question": "What is the virtual DOM?",
+    "answer": "The virtual DOM is a lightweight JavaScript representation of the real DOM used by React for fast updates."
+  },
+  {
+    "question": "What is JSX?",
+    "answer": "JSX is a syntax extension that allows mixing HTML with JavaScript logic in React."
+  },
+  {
+    "question": "What is prop drilling?",
+    "answer": "Prop drilling refers to passing data through multiple layers of components via props."
+  }
+]

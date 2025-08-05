@@ -22,7 +22,7 @@ const ServiceBoxes = () => {
         </Pressable>
 
         {/* Interview Questions */}
-        <Pressable style={styles.ServiceBox} onPress={() => router.push('/screens/interviews/interviewCategory')}>
+        <Pressable style={styles.ServiceBox} onPress={() => router.push('/interviews/category')}>
             <View>
                 <Text style={styles.ServiceText}>Updated Interview Questions</Text>
             </View>
