@@ -47,11 +47,11 @@ const Profile = () => {
 
     try {
       const user = await getUserData();
-      const name = await AsyncStorage.getItem('userName'); 
-      const email = await AsyncStorage.getItem('userEmail'); 
-      const password = await AsyncStorage.getItem('userPassword'); 
-      const phone = await AsyncStorage.getItem('userPhone'); 
-      const state = await AsyncStorage.getItem('userState'); 
+      const name = await AsyncStorage.getItem('userName');
+      const email = await AsyncStorage.getItem('userEmail');
+      const password = await AsyncStorage.getItem('userPassword');
+      const phone = await AsyncStorage.getItem('userPhone');
+      const state = await AsyncStorage.getItem('userState');
 
       if (user && typeof user === 'object') {
         setUserData({
@@ -82,26 +82,63 @@ const Profile = () => {
   // Clear all user data
   const handleClear = async () => {
     try {
-      await clearUserData();
-      await getData();
-      Alert.alert('Success', 'User data has been cleared.');
+      await AsyncStorage.clear();
+      Alert.alert("Account Deleted", "All your data has been removed.");
+      router.replace('/screens/auth/login'); // 👈 Redirect to login (or change path as needed)
     } catch (error) {
-      console.error('Failed to clear data:', error);
-      Alert.alert('Error', 'Failed to clear data.');
+      Alert.alert("Error", "Failed to delete account.");
     }
   };
 
-  // Logout function
+  // Confirmation before delete
+  const confirmDelete = () => {
+    Alert.alert(
+      "Confirm Deletion",
+      "Are you sure you want to permanently delete your account? This action cannot be undone.",
+      [
+        {
+          text: "Cancel",
+          style: "cancel",
+        },
+        {
+          text: "Delete",
+          onPress: handleClear,
+          style: "destructive",
+        },
+      ]
+    );
+  };
+
+  // Logout function (after confirmation)
   const handleLogout = async () => {
     try {
       await clearUserData();
       setLoggedIn(false);
       Alert.alert('Logged Out', 'You have been logged out.');
-      router.replace('/screens/auth/login');
+      router.replace('/screens/auth/login'); // Redirect to login
     } catch (error) {
       console.error('Logout failed:', error);
       Alert.alert('Error', 'Logout failed.');
     }
+  };
+
+  // Show confirmation first
+  const confirmLogout = () => {
+    Alert.alert(
+      'Confirm Logout',
+      'Are you sure you want to log out?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel',
+        },
+        {
+          text: 'Logout',
+          onPress: handleLogout,
+          style: 'destructive',
+        },
+      ]
+    );
   };
 
   return (
@@ -157,15 +194,15 @@ const Profile = () => {
             </Text>
           </View>
 
-          <Pressable onPress={handleClear} style={styles.button}>
-            <Text style={styles.buttonText}>Clear All Data</Text>
-          </Pressable>
-
           <Pressable
-            onPress={handleLogout}
+            onPress={confirmLogout}
             style={[styles.button, { backgroundColor: '#555' }]}
           >
             <Text style={styles.buttonText}>Logout</Text>
+          </Pressable>
+
+          <Pressable onPress={confirmDelete} style={styles.button}>
+            <Text style={styles.buttonText}>Delete Account Permanently</Text>
           </Pressable>
         </>
       )}
