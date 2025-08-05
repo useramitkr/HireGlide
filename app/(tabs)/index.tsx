@@ -85,12 +85,12 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
     paddingTop: 60,
+    paddingBottom: 60,
     backgroundColor: 'white',
   },
   container: {
     paddingLeft: 16,
     paddingRight: 16,
-    paddingBottom: 8,
     paddingTop: 16,
     backgroundColor: 'white',
     width: '100%',
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   statusWrapper: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 20,
+    marginVertical: 5,
   },
   statusDotLarge: {
     width: 18,

@@ -3,13 +3,13 @@ import {
   Text,
   StyleSheet,
   ScrollView,
-  Pressable,
   Alert,
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
-import { getUserData, isUserLoggedIn, clearUserData } from '@/utils/storage';
+import { getUserData, isUserLoggedIn } from '@/utils/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
+import LogoutDel from '@/components/GlideUi/logoutDel';
 
 const Profile = () => {
   const router = useRouter();
@@ -79,73 +79,11 @@ const Profile = () => {
     getData();
   }, []);
 
-  // Clear all user data
-  const handleClear = async () => {
-    try {
-      await AsyncStorage.clear();
-      Alert.alert("Account Deleted", "All your data has been removed.");
-      router.replace('/screens/auth/login'); // 👈 Redirect to login (or change path as needed)
-    } catch (error) {
-      Alert.alert("Error", "Failed to delete account.");
-    }
-  };
-
-  // Confirmation before delete
-  const confirmDelete = () => {
-    Alert.alert(
-      "Confirm Deletion",
-      "Are you sure you want to permanently delete your account? This action cannot be undone.",
-      [
-        {
-          text: "Cancel",
-          style: "cancel",
-        },
-        {
-          text: "Delete",
-          onPress: handleClear,
-          style: "destructive",
-        },
-      ]
-    );
-  };
-
-  // Logout function (after confirmation)
-  const handleLogout = async () => {
-    try {
-      await clearUserData();
-      setLoggedIn(false);
-      Alert.alert('Logged Out', 'You have been logged out.');
-      router.replace('/screens/auth/login'); // Redirect to login
-    } catch (error) {
-      console.error('Logout failed:', error);
-      Alert.alert('Error', 'Logout failed.');
-    }
-  };
-
-  // Show confirmation first
-  const confirmLogout = () => {
-    Alert.alert(
-      'Confirm Logout',
-      'Are you sure you want to log out?',
-      [
-        {
-          text: 'Cancel',
-          style: 'cancel',
-        },
-        {
-          text: 'Logout',
-          onPress: handleLogout,
-          style: 'destructive',
-        },
-      ]
-    );
-  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-      <Text style={styles.heading}>User Profile</Text>
 
-      <View style={styles.statusContainer}>
+      {/* <View style={styles.statusContainer}>
         <View
           style={[
             styles.statusDot,
@@ -155,55 +93,46 @@ const Profile = () => {
         <Text style={styles.statusText}>
           {loggedIn ? 'Logged In' : 'Logged Out'}
         </Text>
-      </View>
+      </View> */}
 
       {loggedIn && (
         <>
-          <View style={styles.itemContainer}>
-            <Text style={styles.label}>Name</Text>
-            <Text style={styles.value}>
-              {userData.name || 'Not available'}
-            </Text>
+          <View style={styles.profileTop}>
+            <View>
+              <Text style={styles.heading}>Hello, {userData.name || 'Guest'}!</Text>
+            </View>
+
+            <View style={styles.statusContainer}>
+              <View
+                style={[
+                  styles.statusDot,
+                  { backgroundColor: loggedIn ? 'green' : 'red' },
+                ]}
+              />
+              <Text style={styles.statusText}>
+                {loggedIn ? 'Logged In' : 'Logged Out'}
+              </Text>
+            </View>
           </View>
 
           <View style={styles.itemContainer}>
-            <Text style={styles.label}>Email</Text>
+            {/* <Text style={styles.label}>Name</Text> */}
             <Text style={styles.value}>
               {userData.email || 'Not available'}
             </Text>
-          </View>
-
-          <View style={styles.itemContainer}>
-            <Text style={styles.label}>Password</Text>
-            <Text style={styles.value}>
-              {userData.password || 'Not available'}
-            </Text>
-          </View>
-
-          <View style={styles.itemContainer}>
-            <Text style={styles.label}>Phone</Text>
             <Text style={styles.value}>
               {userData.phone || 'Not available'}
             </Text>
           </View>
 
-          <View style={styles.itemContainer}>
-            <Text style={styles.label}>State</Text>
-            <Text style={styles.value}>
-              {userData.state || 'Not available'}
-            </Text>
-          </View>
+          {/* Blocked Timer  */}
 
-          <Pressable
-            onPress={confirmLogout}
-            style={[styles.button, { backgroundColor: '#555' }]}
-          >
-            <Text style={styles.buttonText}>Logout</Text>
-          </Pressable>
 
-          <Pressable onPress={confirmDelete} style={styles.button}>
-            <Text style={styles.buttonText}>Delete Account Permanently</Text>
-          </Pressable>
+
+
+
+          {/* Logout and Delete Acount  */}
+          <LogoutDel />
         </>
       )}
     </ScrollView>
@@ -215,22 +144,19 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#FFFFE0',
+    backgroundColor: '#FFFFFF',
     flexGrow: 1,
     paddingBottom: 200,
+    paddingTop: 60,
   },
   heading: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#303742',
-    textAlign: 'center',
-    marginBottom: 20,
-    marginTop: 50,
   },
   statusContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
     justifyContent: 'flex-end',
   },
   statusDot: {
@@ -244,35 +170,40 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#303742',
   },
+  profileTop: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 10,
+  },
   itemContainer: {
-    backgroundColor: '#FFA500',
-    padding: 15,
-    borderRadius: 12,
-    marginBottom: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
   },
   label: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#303742',
+    color: '#ffffff',
     marginBottom: 5,
   },
   value: {
     fontSize: 16,
     color: '#ffffff',
-    backgroundColor: '#0489D9',
+    backgroundColor: '#303742',
     padding: 10,
     borderRadius: 8,
   },
-  button: {
-    backgroundColor: '#DC143C',
-    padding: 15,
-    borderRadius: 12,
-    alignItems: 'center',
-    marginTop: 20,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+  // button: {
+  //   backgroundColor: '#DC143C',
+  //   padding: 15,
+  //   borderRadius: 12,
+  //   alignItems: 'center',
+  //   marginTop: 20,
+  // },
+  // buttonText: {
+  //   color: '#fff',
+  //   fontSize: 18,
+  //   fontWeight: 'bold',
+  // },
 });
