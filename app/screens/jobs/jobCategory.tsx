@@ -1,11 +1,35 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
 import { Stack } from 'expo-router';
 import JobsCategory from '@/components/GlideUi/jobsCategory';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const JobCategory = () => {
-  
+
+  // Fetch User Data 
+  const [userData, setUserData] = useState({
+    name: '',
+  });
+
+  const getData = async () => {
+    try {
+      const name = await AsyncStorage.getItem('userName');
+
+      setUserData({
+        name: name || '',
+      });
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  // Fetch User Data End
+
   return (
     <View style={styles.scrollContainer}>
       <View>
@@ -25,7 +49,7 @@ const JobCategory = () => {
       </View>
 
       <View style={styles.container}>
-        <Text style={styles.heading}>Hello Name,</Text>
+        <Text style={styles.heading}>Hello {userData.name},</Text>
         <Text style={styles.headingText}>Let's find you a great job!</Text>
       </View>
 
