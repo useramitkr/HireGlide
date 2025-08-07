@@ -10,6 +10,7 @@ import { getUserData, isUserLoggedIn } from '@/utils/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import LogoutDel from '@/components/GlideUi/logoutDel';
+import ApplicationProgressReport from '@/components/GlideUi/ApplicationProgressReport';
 
 const Profile = () => {
   const router = useRouter();
@@ -126,6 +127,7 @@ const Profile = () => {
           </View>
 
           {/* Blocked Timer  */}
+          <ApplicationProgressReport />
 
 
 
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     flexGrow: 1,
     paddingBottom: 200,
-    paddingTop: 60,
+    paddingTop: 80,
   },
   heading: {
     fontSize: 20,

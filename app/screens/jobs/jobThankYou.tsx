@@ -82,7 +82,7 @@ const ThankYou: React.FC = () => {
             All updates regarding your application status will be sent to your registered email.
           </Text>
 
-          <Pressable style={styles.trackButton}>
+          <Pressable style={styles.trackButton} onPress={() => router.push('/profile')}>
             <Text style={styles.trackButtonText}>View Application Status</Text>
           </Pressable>
 

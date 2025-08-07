@@ -3,13 +3,18 @@ import { View, Text, StyleSheet, Button, StatusBar } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Stack, useRouter } from 'expo-router';
 
+// This component displays a countdown timer and waits for a specific
+// timestamp stored in AsyncStorage to pass before navigating away.
 const WaitScreen = () => {
-    const [remainingTime, setRemainingTime] = useState(0);
-    const [countdownOver, setCountdownOver] = useState(false);
+    // State to hold the remaining time in seconds
+    const [remainingTime, setRemainingTime] = useState<number>(0);
+    // State to track when the countdown has finished
+    const [countdownOver, setCountdownOver] = useState<boolean>(false);
+    // Hook to access the Expo router for navigation
     const router = useRouter();
 
-    // Format seconds to MM:SS
-    const formatTime = (seconds: number) => {
+    // Helper function to format seconds into a MM:SS string
+    const formatTime = (seconds: number): string => {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;
         return `${mins.toString().padStart(2, '0')}:${secs
@@ -17,41 +22,80 @@ const WaitScreen = () => {
             .padStart(2, '0')}`;
     };
 
-    // Get remaining block time
-    const getRemainingTime = async () => {
-        const blockUntilStr = await AsyncStorage.getItem('thankYouBlockUntil');
-        const blockUntil = blockUntilStr ? parseInt(blockUntilStr, 10) : 0;
-        const now = Date.now();
-        const remaining = Math.max(Math.floor((blockUntil - now) / 1000), 0);
-        setRemainingTime(remaining);
-    };
-
+    // This effect handles the timer initialization and countdown logic.
+    // It runs only once when the component mounts.
     useEffect(() => {
-        // Fetch initial timer
-        getRemainingTime();
+        // A variable to hold the interval ID so it can be cleared later
+        let timerInterval: NodeJS.Timeout | undefined;
 
-        const interval = setInterval(() => {
-            setRemainingTime((prev) => {
-                if (prev <= 1) {
-                    clearInterval(interval);
+        // An async function to fetch the time and start the countdown
+        const initializeTimer = async () => {
+            try {
+                // Fetch the stored timestamp from AsyncStorage
+                const blockUntilStr = await AsyncStorage.getItem('thankYouBlockUntil');
+                const blockUntil = blockUntilStr ? parseInt(blockUntilStr, 10) : 0;
+                
+                // Get the current time and calculate the remaining time
+                const now = Date.now();
+                const initialRemaining = Math.max(Math.floor((blockUntil - now) / 1000), 0);
+                
+                // Set the initial remaining time in state
+                setRemainingTime(initialRemaining);
+
+                // Start the countdown interval only if there is time remaining
+                if (initialRemaining > 0) {
+                    timerInterval = setInterval(() => {
+                        setRemainingTime((prev) => {
+                            // Check if the countdown is finished
+                            if (prev <= 1) {
+                                // If so, clear the interval and set the countdownOver flag
+                                clearInterval(timerInterval);
+                                setCountdownOver(true);
+                                return 0;
+                            }
+                            // Otherwise, decrement the time by one second
+                            return prev - 1;
+                        });
+                    }, 1000);
+                } else {
+                    // If no time is remaining, set the countdownOver flag immediately
                     setCountdownOver(true);
-                    return 0;
                 }
-                return prev - 1;
-            });
-        }, 1000);
+            } catch (error) {
+                // Log any errors that occur while fetching from AsyncStorage
+                console.error("Failed to fetch timer data from AsyncStorage:", error);
+                // In case of an error, assume the timer is over to prevent the user from being stuck
+                setCountdownOver(true);
+            }
+        };
 
-        return () => clearInterval(interval);
-    }, []);
+        // Call the initialization function
+        initializeTimer();
 
-    // Delay navigation AFTER render is done (to avoid "ImperativeApiEmitter" warning)
+        // Cleanup function to clear the interval when the component unmounts
+        return () => {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+        };
+    }, []); // Empty dependency array means this effect runs once
+
+    // This effect handles the navigation once the countdown is over.
+    // It runs whenever the `countdownOver` state or `router` changes.
     useEffect(() => {
+        let navigationTimeout: NodeJS.Timeout | undefined;
         if (countdownOver) {
-            const timeout = setTimeout(() => {
+            // Set a small delay before navigating to avoid a race condition
+            navigationTimeout = setTimeout(() => {
                 router.replace('/');
             }, 1000);
-            return () => clearTimeout(timeout);
         }
+        // Cleanup function to clear the timeout
+        return () => {
+            if (navigationTimeout) {
+                clearTimeout(navigationTimeout);
+            }
+        };
     }, [countdownOver, router]);
 
     return (
@@ -59,9 +103,7 @@ const WaitScreen = () => {
             <Stack.Screen
                 options={{
                     headerTitle: 'Processing...',
-                    headerStyle: {
-                        backgroundColor: '#0489D9',
-                    },
+                    headerStyle: { backgroundColor: '#0489D9' },
                     headerTintColor: '#ffffff',
                     headerBackVisible: false,
                     gestureEnabled: false,
@@ -127,7 +169,6 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         minWidth: 160,
     },
-
     buttonContainer: {
         width: '100%',
         paddingHorizontal: 30,
