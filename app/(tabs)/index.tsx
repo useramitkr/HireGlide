@@ -3,6 +3,7 @@ import HomeAnalytics from '@/components/GlideUi/homeAnalytics';
 import JobCurator from '@/components/GlideUi/jobCurator';
 import ResumeAlert from '@/components/GlideUi/resumeAlert';
 import ServiceBoxes from '@/components/GlideUi/serviceBoxes';
+import TrendingCards from '@/components/GlideUi/trendingCards';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Stack, useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
@@ -59,9 +60,10 @@ export default function HomeScreen() {
       </View>
 
       {/* App Sections */}
-      <HomeAnalytics />
-      <ServiceBoxes />
+      <TrendingCards />
       <JobCurator />
+      <ServiceBoxes />
+      <HomeAnalytics />
       <ResumeAlert />
 
       {/* Temp Button to go to Login */}
