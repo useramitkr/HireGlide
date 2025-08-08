@@ -23,7 +23,7 @@ const ServiceBoxes = () => {
 
   const handleAccess = async (route: string) => {
     if (isLoggedIn) {
-      router.push(route);
+      router.push(route as any);
     } else {
       Alert.alert(
         "Login Required",
