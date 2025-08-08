@@ -11,6 +11,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import LogoutDel from '@/components/GlideUi/logoutDel';
 import ApplicationProgressReport from '@/components/GlideUi/ApplicationProgressReport';
+import ResumeBoxes from '@/components/GlideUi/resumeBoxes';
+import ResumeAlert from '@/components/GlideUi/resumeAlert';
 
 const Profile = () => {
   const router = useRouter();
@@ -128,6 +130,12 @@ const Profile = () => {
 
           {/* Blocked Timer  */}
           <ApplicationProgressReport />
+
+          {/* User Report  */}
+          <ResumeBoxes />
+
+          {/* Resume Alert Box  */}
+          <ResumeAlert />
 
 
 

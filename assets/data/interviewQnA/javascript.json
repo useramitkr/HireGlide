@@ -1,22 +1,122 @@
 [
   {
-    "question": "What is React?",
-    "answer": "React is a JavaScript library for building user interfaces, developed by Facebook."
+    "question": "What is JavaScript?",
+    "answer": "JavaScript is a versatile, high-level programming language primarily used to add interactivity, control behavior, and dynamically update content on websites. It is supported by all modern web browsers and plays a crucial role in frontend development, alongside HTML and CSS. JavaScript can also be used on the server side using environments like Node.js."
   },
   {
-    "question": "What are hooks in React?",
-    "answer": "Hooks are functions that let you use state and lifecycle features in functional components."
+    "question": "What are the different data types in JavaScript?",
+    "answer": "JavaScript supports both primitive and non-primitive data types. Primitive types include string, number, boolean, null, undefined, symbol, and bigint. These are immutable and represent a single value. Non-primitive types include objects, arrays, and functions, which can hold multiple values and are mutable."
   },
   {
-    "question": "What is the virtual DOM?",
-    "answer": "The virtual DOM is a lightweight JavaScript representation of the real DOM used by React for fast updates."
+    "question": "What is the difference between var, let, and const?",
+    "answer": "In JavaScript, 'var' is function-scoped and can be re-declared and updated. 'let' and 'const' are block-scoped, introduced in ES6. 'let' allows reassignment but not re-declaration within the same scope. 'const' is used for values that should not change, and attempting to reassign a 'const' variable will result in an error. 'var' is hoisted to the top of its scope and initialized as undefined, while 'let' and 'const' are hoisted but not initialized."
   },
   {
-    "question": "What is JSX?",
-    "answer": "JSX is a syntax extension that allows mixing HTML with JavaScript logic in React."
+    "question": "What is hoisting in JavaScript?",
+    "answer": "Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase. This means variables declared with 'var' and function declarations can be accessed before their actual line of declaration. However, variables declared with 'let' and 'const' are hoisted but not initialized, leading to a 'ReferenceError' if accessed before declaration."
   },
   {
-    "question": "What is prop drilling?",
-    "answer": "Prop drilling refers to passing data through multiple layers of components via props."
+    "question": "What are template literals?",
+    "answer": "Template literals are a feature introduced in ES6 that allows easier string creation and formatting. They use backticks (``) instead of quotes and support multi-line strings as well as embedded expressions using the `${expression}` syntax. This makes it more readable and manageable to construct dynamic strings in JavaScript."
+  },
+  {
+    "question": "What is the difference between == and ===?",
+    "answer": "The '==' operator checks for equality of values after performing type coercion, meaning it converts the operands to the same type before comparing. The '===' operator, also known as the strict equality operator, checks for both value and type equality without performing any type conversion, making it a safer and more predictable comparison method."
+  },
+  {
+    "question": "What is an arrow function?",
+    "answer": "Arrow functions are a concise way to write function expressions introduced in ES6. They are anonymous and use the '=>' syntax. One of the key differences from regular functions is that arrow functions do not have their own 'this' context; instead, they inherit it from the parent scope. This makes them particularly useful in callback functions or inside classes."
+  },
+  {
+    "question": "What is a closure?",
+    "answer": "A closure is a feature in JavaScript where a function has access to its own scope, the outer function's scope, and the global scope. This means even after the outer function has returned, the inner function can still access the variables of the outer function. Closures are commonly used for data privacy and to maintain state in asynchronous operations."
+  },
+  {
+    "question": "What is the DOM?",
+    "answer": "The Document Object Model (DOM) is a programming interface that represents the structure of an HTML or XML document as a tree of objects. JavaScript can use the DOM to read, modify, add, or remove elements and content on a web page, enabling dynamic updates without reloading the page."
+  },
+  {
+    "question": "What is event bubbling?",
+    "answer": "Event bubbling is a concept in the DOM where an event starts from the deepest (most specific) target element and then bubbles up to its ancestors in the hierarchy. For example, if a click event happens on a button inside a div, the event first runs on the button, then on the parent div, and so on. Developers can stop this behavior using the stopPropagation() method."
+  },
+  {
+    "question": "What is an IIFE in JavaScript?",
+    "answer": "IIFE stands for Immediately Invoked Function Expression. It is a function that runs immediately after it is defined. The syntax involves wrapping the function in parentheses and then adding another pair of parentheses to invoke it. IIFEs are commonly used to avoid polluting the global scope and to create private variables."
+  },
+  {
+    "question": "What is NaN in JavaScript?",
+    "answer": "NaN stands for 'Not-a-Number'. It is a special value returned when an operation that expects a number fails to produce a valid number. For example, dividing a string by a number or parsing an invalid string to a number returns NaN. NaN is of type 'number' but is not equal to any value, including itself."
+  },
+  {
+    "question": "What is the difference between null and undefined?",
+    "answer": "'null' is an assignment value that represents no value or object. It is intentionally assigned to indicate that a variable should be empty. 'undefined' means a variable has been declared but has not yet been assigned a value. Both are falsy values but represent different meanings."
+  },
+  {
+    "question": "What are JavaScript promises?",
+    "answer": "A Promise is an object representing the eventual completion or failure of an asynchronous operation. It has three states: pending, fulfilled, and rejected. Promises help in avoiding callback hell and make asynchronous code easier to manage and chain using .then() and .catch() methods."
+  },
+  {
+    "question": "What is async/await in JavaScript?",
+    "answer": "Async/await is a syntactic feature introduced in ES8 that allows writing asynchronous code in a synchronous-looking manner. Functions marked as 'async' return a Promise, and 'await' pauses the execution until the Promise resolves or rejects. This improves code readability and error handling."
+  },
+  {
+    "question": "What is the spread operator?",
+    "answer": "The spread operator (...) allows an iterable like an array or object to be expanded into individual elements or properties. It is commonly used for copying arrays, merging objects, or passing arguments to functions."
+  },
+  {
+    "question": "What is the rest parameter in JavaScript?",
+    "answer": "The rest parameter syntax allows a function to accept an indefinite number of arguments as an array. It uses the same '...' syntax as the spread operator but is used in function parameters to gather remaining arguments."
+  },
+  {
+    "question": "What are higher-order functions?",
+    "answer": "A higher-order function is a function that either takes another function as an argument or returns a function as a result. Functions like map(), filter(), and reduce() are examples of higher-order functions and are widely used in functional programming."
+  },
+  {
+    "question": "What is 'this' keyword in JavaScript?",
+    "answer": "The 'this' keyword refers to the object it belongs to. In global scope, 'this' refers to the global object (window in browsers). Inside a method, 'this' refers to the owner object. In arrow functions, 'this' is lexically bound and refers to the enclosing context."
+  },
+  {
+    "question": "What is the difference between call(), apply(), and bind()?",
+    "answer": "'call()' and 'apply()' invoke functions with a specified 'this' value. 'call()' takes arguments separately, while 'apply()' takes arguments as an array. 'bind()' returns a new function with 'this' bound permanently, which can be invoked later."
+  },
+  {
+    "question": "What are array methods map(), filter(), and reduce()?",
+    "answer": "'map()' creates a new array by applying a function to each element. 'filter()' returns a new array with elements that pass a test. 'reduce()' applies a function against an accumulator and each element to reduce the array to a single value."
+  },
+  {
+    "question": "What is event delegation?",
+    "answer": "Event delegation is a technique where a single event listener is added to a parent element to manage events for its child elements. It works because of event bubbling and helps improve performance by reducing the number of event listeners."
+  },
+  {
+    "question": "What is the difference between synchronous and asynchronous code?",
+    "answer": "Synchronous code executes sequentially, blocking the next line until the current one finishes. Asynchronous code allows the program to continue running while waiting for a task (like a network request) to complete, improving performance and responsiveness."
+  },
+  {
+    "question": "What is JSON and how is it used?",
+    "answer": "JSON (JavaScript Object Notation) is a lightweight data format used for storing and exchanging data between a server and a client. It is based on JavaScript object syntax and supports strings, numbers, arrays, booleans, null, and objects. It is commonly used in APIs."
+  },
+  {
+    "question": "What is destructuring in JavaScript?",
+    "answer": "Destructuring is a syntax that allows extracting values from arrays or properties from objects into separate variables. It simplifies code and makes it easier to work with complex structures."
+  },
+  {
+    "question": "What is type coercion in JavaScript?",
+    "answer": "Type coercion is the automatic or implicit conversion of values from one type to another. For example, JavaScript might convert a string to a number in arithmetic operations, which can lead to unexpected results if not handled carefully."
+  },
+  {
+    "question": "What is a callback function?",
+    "answer": "A callback is a function passed as an argument to another function and is executed after the completion of that function. Callbacks are widely used in asynchronous programming to handle events and responses."
+  },
+  {
+    "question": "What are truthy and falsy values?",
+    "answer": "Truthy values are those that evaluate to true in a Boolean context (e.g., 'hello', 1, [], {}). Falsy values include false, 0, '', null, undefined, and NaN. Understanding these helps prevent bugs in conditional statements."
+  },
+  {
+    "question": "What is the difference between for...in and for...of loops?",
+    "answer": "'for...in' iterates over enumerable properties (keys) of an object, while 'for...of' iterates over the values of iterable objects like arrays, strings, and sets. 'for...of' cannot be used on plain objects unless made iterable."
+  },
+  {
+    "question": "What is a promise chain?",
+    "answer": "A promise chain is a sequence of .then() methods attached to a Promise, allowing multiple asynchronous operations to be executed in a specific order. Each .then() receives the result of the previous one, enabling structured and readable async code."
   }
 ]

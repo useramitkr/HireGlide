@@ -1,6 +1,7 @@
 // import BannerAds from '@/components/gAds/bannerAds';
 import HomeAnalytics from '@/components/GlideUi/homeAnalytics';
 import JobCurator from '@/components/GlideUi/jobCurator';
+import ResumeAlert from '@/components/GlideUi/resumeAlert';
 import ServiceBoxes from '@/components/GlideUi/serviceBoxes';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Stack, useRouter } from 'expo-router';
@@ -33,9 +34,12 @@ export default function HomeScreen() {
       <Stack.Screen
         options={{
           headerTintColor: '#ffffff',
+          headerStyle: { backgroundColor: '#0489D9' },
+          statusBarStyle: 'light', // iOS
+          statusBarBackgroundColor: '#0489D9', // Android
         }}
       />
-      <StatusBar barStyle="light-content" />
+
 
       {/* Header Section */}
       <View style={styles.container}>
@@ -58,6 +62,7 @@ export default function HomeScreen() {
       <HomeAnalytics />
       <ServiceBoxes />
       <JobCurator />
+      <ResumeAlert />
 
       {/* Temp Button to go to Login */}
       <Pressable
@@ -67,10 +72,10 @@ export default function HomeScreen() {
           backgroundColor: '#0489D9',
           borderRadius: 8,
           alignItems: 'center',
-          margin: 16,
+          margin: 5,
         }}
       >
-        <Text style={{ color: 'white' }}>Temporary Button</Text>
+        <Text style={{ color: 'white' }}>Temporary Login Button</Text>
       </Pressable>
     </ScrollView>
   );
@@ -84,7 +89,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
-    paddingTop: 60,
+    // paddingTop: 10,
     paddingBottom: 60,
     backgroundColor: 'white',
   },

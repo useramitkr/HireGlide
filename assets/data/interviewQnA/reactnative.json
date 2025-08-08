@@ -1,22 +1,122 @@
 [
   {
-    "question": "What is a REST API?",
-    "answer": "A REST API is an architectural style for building web services based on HTTP methods."
+    "question": "What is React Native?",
+    "answer": "React Native is an open-source framework developed by Meta (formerly Facebook) that allows developers to build mobile applications using JavaScript and React. It enables the creation of apps for both iOS and Android using a single codebase, while still delivering a native look and performance."
   },
   {
-    "question": "What is Node.js?",
-    "answer": "Node.js is a runtime environment that allows executing JavaScript on the server."
+    "question": "How is React Native different from React?",
+    "answer": "React is used for building web applications, while React Native is designed for building mobile applications. Though both use JavaScript and the React component model, React Native uses native components instead of HTML elements, and it provides platform-specific APIs to access device features like camera, GPS, and storage."
   },
   {
-    "question": "What is middleware in Express?",
-    "answer": "Middleware are functions that have access to request and response objects in Express."
+    "question": "What are components in React Native?",
+    "answer": "Components in React Native are the building blocks of a mobile application’s UI. They can be either functional or class components and are responsible for rendering UI and managing state and props. React Native offers built-in components like View, Text, Image, ScrollView, and others."
   },
   {
-    "question": "What is the difference between SQL and NoSQL?",
-    "answer": "SQL databases are relational and structured, while NoSQL databases are non-relational and flexible."
+    "question": "What is the role of the View component in React Native?",
+    "answer": "The View component is similar to a div in HTML and acts as a container for other components. It is a fundamental component in React Native used to layout and structure the UI. Developers can style Views using the StyleSheet object."
   },
   {
-    "question": "What is JWT?",
-    "answer": "JWT (JSON Web Token) is a secure way to transmit information between parties as a JSON object."
+    "question": "What is the difference between state and props?",
+    "answer": "Props (short for properties) are used to pass data from parent to child components and are read-only. State is a local data storage that is mutable and used to control a component’s behavior and rendering. Changes in state trigger a re-render of the component."
+  },
+  {
+    "question": "How do you style components in React Native?",
+    "answer": "In React Native, styling is done using the StyleSheet API, which is similar to CSS but written in JavaScript. Instead of CSS classes, styles are defined as JavaScript objects and passed to components via the 'style' prop."
+  },
+  {
+    "question": "What is the use of the ScrollView component?",
+    "answer": "ScrollView is a component that enables scrolling of content that doesn't fit within the device screen. It can be used vertically or horizontally and is useful when displaying long forms, lists, or other overflow content."
+  },
+  {
+    "question": "What is the FlatList component used for?",
+    "answer": "FlatList is a performant component in React Native used to render large lists of data efficiently. It only renders the items currently visible on the screen and provides built-in props for handling scrolling, refreshing, and more."
+  },
+  {
+    "question": "What is Flexbox in React Native?",
+    "answer": "Flexbox is a layout system used in React Native to align and distribute space among components. It works similarly to CSS Flexbox and allows developers to create responsive UIs that adapt to different screen sizes."
+  },
+  {
+    "question": "What is Expo in React Native?",
+    "answer": "Expo is a framework and platform built on top of React Native that provides a set of tools and services to simplify development. It includes features like asset management, camera access, push notifications, and easy testing on physical devices without needing Xcode or Android Studio."
+  },
+  {
+    "question": "What is the difference between Expo and React Native CLI?",
+    "answer": "Expo is easier to set up and ideal for beginners, offering a managed workflow. React Native CLI provides more flexibility and is used for advanced development with custom native code. With React Native CLI, you have direct access to Android and iOS native files."
+  },
+  {
+    "question": "How do you navigate between screens in React Native?",
+    "answer": "Navigation in React Native is handled using libraries like React Navigation. It provides components like StackNavigator, TabNavigator, and DrawerNavigator to manage screen transitions, route parameters, and navigation history."
+  },
+  {
+    "question": "What is a Stack Navigator?",
+    "answer": "Stack Navigator is a navigation pattern in React Navigation that manages a stack of screens, similar to pages in a browser. Each new screen is pushed onto the stack, and users can go back by popping the stack."
+  },
+  {
+    "question": "What is useState in React Native?",
+    "answer": "useState is a React Hook that allows functional components to hold and manage local state. It returns a state variable and a setter function, enabling the component to update and respond to data changes."
+  },
+  {
+    "question": "What is useEffect in React Native?",
+    "answer": "useEffect is a React Hook used to handle side effects such as API calls, subscriptions, and DOM updates. It runs after the component has rendered and can optionally clean up when the component unmounts."
+  },
+  {
+    "question": "How do you make API calls in React Native?",
+    "answer": "API calls in React Native are typically made using the fetch API or third-party libraries like Axios. These calls are usually made inside the useEffect hook or event handlers, and the response data is stored using state."
+  },
+  {
+    "question": "How do you handle user input in React Native?",
+    "answer": "User input is handled using components like TextInput and event handlers such as onChangeText. The entered data is captured and stored using state variables, which can then be used to update the UI or submit forms."
+  },
+  {
+    "question": "What is async storage in React Native?",
+    "answer": "AsyncStorage is an unencrypted, asynchronous, key-value storage system that allows you to persist data across app launches. It is commonly used for storing user preferences, tokens, and small pieces of data locally on the device."
+  },
+  {
+    "question": "How do you debug a React Native app?",
+    "answer": "React Native apps can be debugged using tools like Chrome DevTools, React Native Debugger, or Flipper. You can also use the console.log statements, breakpoints, and remote debugging through Expo or the CLI."
+  },
+  {
+    "question": "What is the role of the StatusBar component?",
+    "answer": "The StatusBar component is used to control the appearance of the native status bar in iOS and Android. You can customize the background color, text style (light or dark), and visibility of the status bar."
+  },
+  {
+    "question": "What are lifecycle methods in class components?",
+    "answer": "Lifecycle methods like componentDidMount, componentDidUpdate, and componentWillUnmount are used in class components to manage side effects and component behavior during different phases of the component’s existence."
+  },
+  {
+    "question": "How do you use images in React Native?",
+    "answer": "Images in React Native can be displayed using the Image component. You can load images from local assets or from a remote URL. Styles can be applied to control size, border, and other visual properties."
+  },
+  {
+    "question": "What are gestures in React Native?",
+    "answer": "Gestures in React Native refer to user interactions such as taps, swipes, pinches, and drags. These can be handled using built-in gesture responders or libraries like React Native Gesture Handler and Reanimated for more complex animations."
+  },
+  {
+    "question": "What is SafeAreaView in React Native?",
+    "answer": "SafeAreaView is a component that renders content within the safe area boundaries of a device. It ensures that content doesn't overlap with system UI elements like notches or the home indicator on modern devices."
+  },
+  {
+    "question": "How do you handle platform-specific code?",
+    "answer": "React Native allows you to write platform-specific code using the Platform module or by using platform-specific file extensions like .ios.js and .android.js. This helps customize behavior or UI for each platform."
+  },
+  {
+    "question": "How does React Native bridge work?",
+    "answer": "React Native uses a bridge to communicate between JavaScript and native code. When a JavaScript function needs to access a native feature, it sends the instruction over the bridge, where native modules handle the request and return the result asynchronously."
+  },
+  {
+    "question": "What are some limitations of React Native?",
+    "answer": "React Native has some limitations, such as performance overhead for complex animations, limited access to certain native APIs without third-party libraries, larger app sizes, and dependency on the bridge for communication between JavaScript and native code."
+  },
+  {
+    "question": "How do you optimize performance in React Native apps?",
+    "answer": "Performance can be optimized by using techniques like memoization, avoiding unnecessary re-renders, using FlatList instead of ScrollView for large data sets, reducing bridge calls, lazy loading components, and using native modules when necessary."
+  },
+  {
+    "question": "How do you handle forms in React Native?",
+    "answer": "Forms are handled using components like TextInput, Switch, and Picker. You can manage form state manually with useState or use libraries like Formik and React Hook Form for validation, state management, and easier control of inputs."
+  },
+  {
+    "question": "What is hot reloading in React Native?",
+    "answer": "Hot reloading allows you to instantly see the result of changes made to your JavaScript code without fully restarting the app. It retains the app’s state while applying only the updated modules, making development faster and more efficient."
   }
 ]

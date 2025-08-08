@@ -15,10 +15,10 @@ const JobCurator = () => {
     const now = new Date();
 
     const currentTime = now.toLocaleTimeString([], {
-  hour: '2-digit',
-  minute: '2-digit',
-  hour12: true,
-});
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true,
+    });
 
 
     return (
@@ -87,7 +87,9 @@ const styles = StyleSheet.create({
         marginBottom: 8,
     },
     curatorBoxParaText: {
-        color: 'white',
         fontSize: 14,
+        lineHeight: 20,
+        color: '#ffffff',
+        textAlign: 'justify',
     },
 }) 
