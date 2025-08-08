@@ -4,6 +4,8 @@ import {
   StyleSheet,
   ScrollView,
   Alert,
+  Pressable,
+  Platform
 } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { getUserData, isUserLoggedIn } from '@/utils/storage';
@@ -82,66 +84,34 @@ const Profile = () => {
     getData();
   }, []);
 
-
   return (
     <ScrollView contentContainerStyle={styles.container}>
-
-      {/* <View style={styles.statusContainer}>
-        <View
-          style={[
-            styles.statusDot,
-            { backgroundColor: loggedIn ? 'green' : 'red' },
-          ]}
-        />
-        <Text style={styles.statusText}>
-          {loggedIn ? 'Logged In' : 'Logged Out'}
-        </Text>
-      </View> */}
 
       {loggedIn && (
         <>
           <View style={styles.profileTop}>
-            <View>
-              <Text style={styles.heading}>Hello, {userData.name || 'Guest'}!</Text>
-            </View>
-
+            <Text style={styles.heading}>Hello, {userData.name || 'Guest'}!</Text>
             <View style={styles.statusContainer}>
-              <View
-                style={[
-                  styles.statusDot,
-                  { backgroundColor: loggedIn ? 'green' : 'red' },
-                ]}
-              />
-              <Text style={styles.statusText}>
-                {loggedIn ? 'Logged In' : 'Logged Out'}
-              </Text>
+              <View style={[styles.statusDot, { backgroundColor: 'green' }]} />
+              <Text style={styles.statusText}>Logged In</Text>
             </View>
           </View>
-
-          <View style={styles.itemContainer}>
-            {/* <Text style={styles.label}>Name</Text> */}
-            <Text style={styles.value}>
-              {userData.email || 'Not available'}
-            </Text>
-            <Text style={styles.value}>
-              {userData.phone || 'Not available'}
-            </Text>
+          
+          <View style={styles.infoCard}>
+            <Text style={styles.infoTitle}>Account Details</Text>
+            <View style={styles.infoItem}>
+              <Text style={styles.label}>Email</Text>
+              <Text style={styles.value}>{userData.email || 'Not available'}</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Text style={styles.label}>Phone</Text>
+              <Text style={styles.value}>{userData.phone || 'Not available'}</Text>
+            </View>
           </View>
-
-          {/* Blocked Timer  */}
+          
           <ApplicationProgressReport />
-
-          {/* User Report  */}
           <ResumeBoxes />
-
-          {/* Resume Alert Box  */}
           <ResumeAlert />
-
-
-
-
-
-          {/* Logout and Delete Acount  */}
           <LogoutDel />
         </>
       )}
@@ -154,66 +124,81 @@ export default Profile;
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#f8f9fa',
     flexGrow: 1,
     paddingBottom: 200,
-    paddingTop: 80,
-  },
-  heading: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#303742',
-  },
-  statusContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-  },
-  statusDot: {
-    width: 14,
-    height: 14,
-    borderRadius: 7,
-    marginRight: 10,
-  },
-  statusText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#303742',
   },
   profileTop: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 10,
+    marginBottom: 24,
+    marginTop: 16,
   },
-  itemContainer: {
+  heading: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#1f2937',
+  },
+  statusContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    backgroundColor: '#e0f7e9',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+  },
+  statusDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    marginRight: 8,
+  },
+  statusText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#1f2937',
+  },
+  infoCard: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 24,
+    marginBottom: 24,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.05,
+        shadowRadius: 10,
+      },
+      android: {
+        elevation: 6,
+      },
+    }),
+  },
+  infoTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#1f2937',
+    marginBottom: 16,
+  },
+  infoItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 12,
+    paddingBottom: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e5e7eb',
   },
   label: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#ffffff',
-    marginBottom: 5,
+    fontWeight: '500',
+    color: '#6b7280',
   },
   value: {
     fontSize: 16,
-    color: '#ffffff',
-    backgroundColor: '#303742',
-    padding: 10,
-    borderRadius: 8,
+    color: '#1f2937',
+    fontWeight: '600',
   },
-  // button: {
-  //   backgroundColor: '#DC143C',
-  //   padding: 15,
-  //   borderRadius: 12,
-  //   alignItems: 'center',
-  //   marginTop: 20,
-  // },
-  // buttonText: {
-  //   color: '#fff',
-  //   fontSize: 18,
-  //   fontWeight: 'bold',
-  // },
 });

@@ -68,7 +68,7 @@ export default function HomeScreen() {
 
       {/* Temp Button to go to Login */}
       <Pressable
-        onPress={() => router.push('screens/auth/login')}
+        onPress={() => router.push('/screens/auth/login')}
         style={{
           padding: 16,
           backgroundColor: '#0489D9',
