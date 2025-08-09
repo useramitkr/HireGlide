@@ -1,11 +1,46 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Pressable } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, ScrollView, Pressable, Alert } from 'react-native';
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { isUserLoggedIn } from '@/utils/storage';
 
 const TrendingCards = () => {
 
     const router = useRouter();
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    
+      useEffect(() => {
+        const checkLoginStatus = async () => {
+          try {
+            const loggedIn = await isUserLoggedIn();
+            setIsLoggedIn(loggedIn);
+          } catch (error) {
+            console.error('Failed to check login status:', error);
+            setIsLoggedIn(false);
+          }
+        };
+        checkLoginStatus();
+      }, []);
+    
+      const handleAccess = async (route: string) => {
+        if (isLoggedIn) {
+          router.push(route as any);
+        } else {
+          Alert.alert(
+            "Login Required",
+            "Please login to access these features.",
+            [
+              { text: "Cancel", style: "cancel" },
+              {
+                text: "Okay",
+                onPress: () => router.push('/screens/auth/login'),
+              }
+            ],
+            { cancelable: true }
+          );
+        }
+      };
 
     return (
         <ScrollView
@@ -30,7 +65,7 @@ const TrendingCards = () => {
                     </Text>
                 </View>
 
-                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]} onPress={() => router.push('/screens/jobs/jobCategory')}>
+                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]} onPress={() => handleAccess('/screens/jobs/jobCategory')}>
                     <Text style={[styles.actionButtonText, { color: '#6b72e5' }]}>Start Your Journey</Text>
                 </Pressable>
             </View>
