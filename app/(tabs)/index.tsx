@@ -67,7 +67,7 @@ export default function HomeScreen() {
       <ResumeAlert />
 
       {/* Temp Button to go to Login */}
-      <Pressable
+      {/* <Pressable
         onPress={() => router.push('/screens/auth/login')}
         style={{
           padding: 16,
@@ -78,7 +78,7 @@ export default function HomeScreen() {
         }}
       >
         <Text style={{ color: 'white' }}>Temporary Login Button</Text>
-      </Pressable>
+      </Pressable> */}
     </ScrollView>
   );
 }
@@ -91,8 +91,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   scrollContainer: {
     flexGrow: 1,
-    // paddingTop: 10,
-    paddingBottom: 60,
+    paddingBottom: 100,
     backgroundColor: 'white',
   },
   container: {
