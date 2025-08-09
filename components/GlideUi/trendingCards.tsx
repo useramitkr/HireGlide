@@ -123,20 +123,20 @@ const TrendingCards = () => {
 
                 <View style={styles.content}>
                     <Text style={styles.mainText}>
-                        Track every job application in one <Text style={styles.highlightText}>central dashboard</Text>.
+                        Track status of application in one <Text style={styles.highlightText}>central dashboard</Text>.
                     </Text>
                     <Text style={styles.subText}>
                         Never miss a follow-up again.
                     </Text>
                 </View>
 
-                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]}>
+                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]} onPress={() => handleAccess('/profile')}>
                     <Text style={[styles.actionButtonText, { color: '#b1721a' }]}>View Dashboard</Text>
                 </Pressable>
             </View>
 
             {/* 05. Personalized Job Alerts */}
-            <View style={[styles.card, { backgroundColor: '#217b6fff' }]}>
+            {/* <View style={[styles.card, { backgroundColor: '#217b6fff' }]}>
                 <View style={styles.header}>
                     <FontAwesome6 name="bell" size={20} color="white" />
                     <Text style={styles.cardTab}>New Opportunities</Text>
@@ -154,10 +154,10 @@ const TrendingCards = () => {
                 <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]}>
                     <Text style={[styles.actionButtonText, { color: '#217b6fff' }]}>Set Alerts</Text>
                 </Pressable>
-            </View>
+            </View> */}
 
             {/* 06. Skill Development */}
-            <View style={[styles.card, { backgroundColor: '#e56bb0ff' }]}>
+            {/* <View style={[styles.card, { backgroundColor: '#e56bb0ff' }]}>
                 <View style={styles.header}>
                     <FontAwesome6 name="brain" size={20} color="white" />
                     <Text style={styles.cardTab}>Skill Up</Text>
@@ -175,10 +175,10 @@ const TrendingCards = () => {
                 <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]}>
                     <Text style={[styles.actionButtonText, { color: '#e56bb1' }]}>Explore Skills</Text>
                 </Pressable>
-            </View>
+            </View> */}
 
             {/* 07. Community & Mentorship */}
-            <View style={[styles.card, { backgroundColor: '#6b94e5ff' }]}>
+            {/* <View style={[styles.card, { backgroundColor: '#6b94e5ff' }]}>
                 <View style={styles.header}>
                     <FontAwesome6 name="users-gear" size={20} color="white" />
                     <Text style={styles.cardTab}>Career Connect</Text>
@@ -196,7 +196,7 @@ const TrendingCards = () => {
                 <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]}>
                     <Text style={[styles.actionButtonText, { color: '#6b93e5' }]}>Join Community</Text>
                 </Pressable>
-            </View>
+            </View> */}
 
         </ScrollView>
     );
