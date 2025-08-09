@@ -4,28 +4,63 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import Svg, { Circle, G } from 'react-native-svg';
 
 const HomeAnalytics = () => {
-    const [userApplied, setUserApplied] = useState(0);
-    const [applicationsSubmitted, setApplicationsSubmitted] = useState(0);
-    const [successRate, setSuccessRate] = useState(0);
-
     const randomInt = (min: number, max: number): number =>
         Math.floor(Math.random() * (max - min + 1)) + min;
 
+    const [userApplied, setUserApplied] = useState(randomInt(9, 23));
+    const [applicationsSubmitted, setApplicationsSubmitted] = useState(randomInt(113, 461));
+    const [successRate, setSuccessRate] = useState(randomInt(65, 94));
+    
+    // States to hold the previous values for comparison
+    // Initializing with different random values to ensure a non-zero change on first render
+    const [prevUserApplied, setPrevUserApplied] = useState(randomInt(9, 23));
+    const [prevApplicationsSubmitted, setPrevApplicationsSubmitted] = useState(randomInt(113, 461));
+    const [prevSuccessRate, setPrevSuccessRate] = useState(randomInt(65, 94));
+
     useEffect(() => {
         const updateMetrics = () => {
+            // Store current values as previous values
+            setPrevUserApplied(userApplied);
+            setPrevApplicationsSubmitted(applicationsSubmitted);
+            setPrevSuccessRate(successRate);
+            
+            // Generate and set new random values
             setUserApplied(randomInt(9, 23));
             setApplicationsSubmitted(randomInt(113, 461));
             setSuccessRate(randomInt(65, 94));
         };
 
-        // Update values on mount
-        updateMetrics();
-
-        // Set up the interval for updates
+        // We set up the interval for subsequent updates.
         const interval = setInterval(updateMetrics, 60000);
 
         return () => clearInterval(interval);
     }, []);
+
+    // Function to calculate the percentage change
+    const calculateChange = (current: number, previous: number) => {
+        if (previous === 0) return '0%';
+        const change = ((current - previous) / previous) * 100;
+        const sign = change >= 0 ? '+' : '';
+        return `${sign}${change.toFixed(0)}%`;
+    };
+    
+    // Determine the icon and color for the percentage change
+    const getChangeIndicator = (current: number, previous: number) => {
+        if (current > previous) {
+            return { icon: "arrow-up", color: '#10b981' };
+        } else if (current < previous) {
+            return { icon: "arrow-down", color: '#ef4444' };
+        } else {
+            return { icon: "minus", color: '#6b7280' };
+        }
+    };
+    
+    // Calculate changes and get indicators
+    const userAppliedChange = calculateChange(userApplied, prevUserApplied);
+    const userAppliedIndicator = getChangeIndicator(userApplied, prevUserApplied);
+    
+    const applicationsSubmittedChange = calculateChange(applicationsSubmitted, prevApplicationsSubmitted);
+    const applicationsSubmittedIndicator = getChangeIndicator(applicationsSubmitted, prevApplicationsSubmitted);
 
     // Chart properties for the success rate
     const size = 180;
@@ -78,8 +113,8 @@ const HomeAnalytics = () => {
                         <Text style={styles.cardValue}>{userApplied}</Text>
                         <Text style={styles.cardSubtitle}>Total users since launch</Text>
                         <View style={styles.cardSubText}>
-                            <FontAwesome6 name="chart-simple" size={14} color="#10b981" />
-                            <Text style={{color: '#10b981', marginLeft: 4}}>+15%</Text>
+                            <FontAwesome6 name={userAppliedIndicator.icon} size={14} color={userAppliedIndicator.color} />
+                            <Text style={{color: userAppliedIndicator.color, marginLeft: 4}}>{userAppliedChange}</Text>
                         </View>
                     </View>
 
@@ -89,8 +124,8 @@ const HomeAnalytics = () => {
                         <Text style={styles.cardValue}>{applicationsSubmitted}</Text>
                         <Text style={styles.cardSubtitle}>Total applications by all users</Text>
                         <View style={styles.cardSubText}>
-                            <FontAwesome6 name="chart-simple" size={14} color="#ef4444" />
-                            <Text style={{color: '#ef4444', marginLeft: 4}}>-5%</Text>
+                            <FontAwesome6 name={applicationsSubmittedIndicator.icon} size={14} color={applicationsSubmittedIndicator.color} />
+                            <Text style={{color: applicationsSubmittedIndicator.color, marginLeft: 4}}>{applicationsSubmittedChange}</Text>
                         </View>
                     </View>
                 </View>

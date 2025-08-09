@@ -1,0 +1,102 @@
+[
+  {
+    "question": "What is a backend developer?",
+    "answer": "A backend developer is a software engineer who builds and maintains the server-side logic of a web application. They focus on the 'behind-the-scenes' functionality that users don't directly see, such as databases, servers, APIs, and business logic. They ensure that data is stored, retrieved, and processed correctly, and they create the architecture that powers the frontend."
+  },
+  {
+    "question": "What is the difference between frontend and backend development?",
+    "answer": "Frontend development focuses on the client-side, or the user interface, which is what the user directly interacts with (HTML, CSS, JavaScript). Backend development focuses on the server-side, which handles the logic, data storage, and communication that makes the frontend work. Frontend is the car's body and dashboard; backend is the engine and fuel system."
+  },
+  {
+    "question": "What is an API?",
+    "answer": "API stands for Application Programming Interface. It is a set of rules and protocols that allows different software applications to communicate with each other. In web development, a backend API (like a REST API) defines how a frontend application can request and receive data from the server, typically through HTTP requests."
+  },
+  {
+    "question": "What is REST?",
+    "answer": "REST stands for Representational State Transfer. It is an architectural style for designing networked applications, particularly APIs. RESTful APIs use standard HTTP methods like GET, POST, PUT, and DELETE to perform CRUD (Create, Read, Update, Delete) operations on resources. They are stateless, meaning each request from a client contains all the information needed to process it."
+  },
+  {
+    "question": "What is a database?",
+    "answer": "A database is an organized collection of structured information, or data, typically stored electronically in a computer system. Backend developers use databases to persist and manage application data, such as user profiles, product information, or blog posts. Databases can be relational (SQL) or non-relational (NoSQL)."
+  },
+  {
+    "question": "What is the difference between SQL and NoSQL databases?",
+    "answer": "SQL (Structured Query Language) databases are relational databases that use a structured schema with tables, rows, and columns. They enforce data integrity and are great for applications that require complex joins and transactions. Examples include MySQL and PostgreSQL. NoSQL databases are non-relational and offer more flexible, schema-less data models, making them suitable for handling large volumes of unstructured data. Examples include MongoDB and Cassandra."
+  },
+  {
+    "question": "What is a server?",
+    "answer": "A server is a computer program or device that provides functionality for other programs or devices, known as clients. In backend development, a server runs the application code, processes incoming requests from the frontend, communicates with the database, and sends a response back to the client. This can be a physical machine, a virtual machine, or a cloud-based service."
+  },
+  {
+    "question": "What is Node.js?",
+    "answer": "Node.js is a cross-platform, open-source JavaScript runtime environment that allows developers to run JavaScript on the server. It uses an event-driven, non-blocking I/O model, which makes it highly efficient and scalable for building real-time applications and APIs. It has become a popular choice for backend development due to its single-language ecosystem with JavaScript."
+  },
+  {
+    "question": "What is Express.js?",
+    "answer": "Express.js is a fast, unopinionated, minimalist web framework for Node.js. It simplifies the process of building web applications and APIs by providing a robust set of features for routing, middleware, and handling HTTP requests and responses. It is one of the most popular frameworks in the Node.js ecosystem."
+  },
+  {
+    "question": "What is MVC architecture?",
+    "answer": "MVC stands for Model-View-Controller, which is a software architectural pattern. The **Model** manages the application's data and business logic. The **View** handles the presentation of the data to the user. The **Controller** acts as an intermediary, receiving input from the user, interacting with the Model, and updating the View. This separation of concerns makes the application more organized and maintainable."
+  },
+  {
+    "question": "What is middleware in a backend framework?",
+    "answer": "Middleware is a function that has access to the request and response objects in the application's request-response cycle. It can execute code, make changes to the request and response objects, and end the cycle or pass control to the next middleware function. It is commonly used for tasks like logging, authentication, and error handling."
+  },
+  {
+    "question": "What is an ORM?",
+    "answer": "ORM stands for Object-Relational Mapper. It is a tool that allows developers to interact with a database using an object-oriented paradigm. Instead of writing raw SQL queries, developers can use a programming language (like JavaScript with Sequelize) to manipulate data through objects. This simplifies database interactions, making the code more readable and easier to maintain."
+  },
+  {
+    "question": "What is authentication vs. authorization?",
+    "answer": "Authentication is the process of verifying a user's identity. It confirms that a user is who they claim to be, typically using credentials like a username and password. Authorization is the process of determining what an authenticated user is permitted to do. It checks if the user has the necessary permissions to access a specific resource or perform a certain action."
+  },
+  {
+    "question": "What is a token-based authentication?",
+    "answer": "Token-based authentication is a stateless method where the server generates a token after a user successfully logs in. This token contains a unique identifier and user claims. The client stores this token and sends it with every subsequent request. The server then validates the token to authenticate the request without needing to store session information, making it highly scalable."
+  },
+  {
+    "question": "What is JSON Web Token (JWT)?",
+    "answer": "A JWT is a compact, URL-safe means of representing claims to be transferred between two parties. It is commonly used for token-based authentication. A JWT consists of three parts: a header, a payload (containing claims about the user), and a signature. The server uses a secret key to sign and verify the token, ensuring its integrity."
+  },
+  {
+    "question": "What is a hash function?",
+    "answer": "A hash function is an algorithm that takes an input (or 'message') and returns a fixed-size string of bytes, typically a hash digest. In backend development, hash functions (like bcrypt) are crucial for security, especially for storing passwords. Instead of storing a user's plain-text password, you store its hash, making it virtually impossible to reverse-engineer and protecting user data even if the database is compromised."
+  },
+  {
+    "question": "What is a microservice architecture?",
+    "answer": "Microservices is an architectural style that structures an application as a collection of loosely coupled, independently deployable services. Each service is responsible for a single business capability and can be developed, deployed, and scaled independently. This contrasts with a monolithic architecture, where all components are tightly coupled into a single application."
+  },
+  {
+    "question": "What is the importance of logging?",
+    "answer": "Logging is the practice of recording events and information about an application's behavior. It is crucial for backend development because it helps with debugging, monitoring performance, and understanding user behavior. Logs provide a historical record of what happened in the application, which is essential for identifying and resolving issues in a production environment."
+  },
+  {
+    "question": "What is a webhook?",
+    "answer": "A webhook is an HTTP callback, or a simple way for an app to provide other applications with real-time information. It's a user-defined HTTP endpoint that an application can call to trigger a specific event in another system. For example, a payment processor might use a webhook to notify your application when a payment is successfully completed."
+  },
+  {
+    "question": "What is the purpose of a .env file?",
+    "answer": "A '.env' file is used to store environment-specific variables, such as database connection strings, API keys, and secret keys. This practice keeps sensitive information out of the codebase, which is crucial for security. It also makes it easy to manage different configurations for development, testing, and production environments without changing the code itself."
+  },
+  {
+    "question": "What is caching?",
+    "answer": "Caching is a technique of storing frequently accessed data in a temporary location so that future requests for that data can be served faster. It reduces the load on the database and improves application performance. Caching can be implemented at various levels, such as in the browser, on the server (in-memory cache), or using dedicated caching services like Redis."
+  },
+  {
+    "question": "What is an event loop in Node.js?",
+    "answer": "The event loop is a core mechanism in Node.js that enables its non-blocking I/O. It continuously checks a queue of tasks and executes them. When an asynchronous operation (like a database query) is initiated, it's sent to the background, and the event loop continues processing other tasks. Once the operation is complete, its callback is added to the queue to be executed later, ensuring that the main thread is not blocked."
+  },
+  {
+    "question": "What is GraphQL?",
+    "answer": "GraphQL is a query language for APIs and a server-side runtime for executing those queries. Unlike REST, which typically sends fixed data from an endpoint, GraphQL allows the client to specify exactly what data it needs. This helps to avoid over-fetching and under-fetching of data, making communication between the frontend and backend more efficient."
+  },
+  {
+    "question": "What is a Docker container?",
+    "answer": "A Docker container is a lightweight, standalone, and executable package of software that includes everything needed to run an application: code, runtime, system tools, and libraries. It provides a consistent environment for the application to run, regardless of the underlying infrastructure, making deployment and scalability much easier."
+  },
+  {
+    "question": "What is the purpose of a Dockerfile?",
+    "answer": "A Dockerfile is a text file that contains a set of instructions for building a Docker image. Each instruction (e.g., FROM, RUN, COPY) creates a layer in the image. The Dockerfile automates the process of creating a reproducible containerized environment, ensuring that the application runs the same way everywhere."
+  }
+]

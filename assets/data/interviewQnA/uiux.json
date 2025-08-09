@@ -1,0 +1,62 @@
+[
+  {
+    "question": "What is UI/UX Design?",
+    "answer": "UI/UX design is a two-part discipline focused on creating effective and enjoyable digital products. **UX (User Experience)** design is the process of enhancing user satisfaction by improving the usability, accessibility, and pleasure in the interaction with a product. **UI (User Interface)** design is the process of designing the visual look and feel of a product, including layout, colors, typography, and interactive elements. Together, they ensure a product is both functional and aesthetically pleasing."
+  },
+  {
+    "question": "What is the difference between UI and UX?",
+    "answer": "UX (User Experience) is the overall feel of the product, determining how it works and how a user interacts with it. It focuses on the user's journey, from discovering the product to achieving a goal. UI (User Interface) is the actual visual design and interaction elements, like buttons, icons, and typography. A common analogy is that UX is the blueprint of a house, while UI is the interior design and paint. A great user experience requires both a solid UI and a well-thought-out UX."
+  },
+  {
+    "question": "What is the UX design process?",
+    "answer": "The UX design process is a non-linear, iterative approach that typically involves five key phases: **1. Empathize** (researching users and their needs), **2. Define** (synthesizing research to create a clear problem statement), **3. Ideate** (brainstorming solutions), **4. Prototype** (creating low-fidelity to high-fidelity mockups of solutions), and **5. Test** (validating prototypes with real users to gather feedback). This process ensures the final product is user-centric and solves real problems."
+  },
+  {
+    "question": "What is a wireframe?",
+    "answer": "A wireframe is a low-fidelity, two-dimensional sketch of a website or application's layout. It's used early in the design process to establish the basic structure, content placement, and functionality of a page. Wireframes are typically black and white and lack design details like colors, images, and typography, focusing solely on the skeletal framework. They are essential for communicating a design concept to stakeholders and developers before moving to more detailed visual design."
+  },
+  {
+    "question": "What is a persona?",
+    "answer": "A persona is a fictional character created to represent a typical user type for a digital product. Personas are based on real user data gathered through research and help designers empathize with the target audience. They typically include details like demographics, behaviors, goals, pain points, and motivations. Creating personas helps designers make user-centric decisions and ensures the product meets the needs of its intended audience."
+  },
+  {
+    "question": "What is a user journey map?",
+    "answer": "A user journey map is a visualization of the entire experience a user has with a product or service. It illustrates the different stages a user goes through, from initial discovery to long-term use. The map typically includes user actions, thoughts, and emotions at each stage, highlighting pain points and opportunities for improvement. User journey maps are a powerful tool for understanding the end-to-end user experience and identifying areas to focus on."
+  },
+  {
+    "question": "What is information architecture?",
+    "answer": "Information architecture (IA) is the structural design of shared information environments. It's the practice of organizing and labeling content to make it understandable and findable. A good IA helps users easily navigate a website or application and find the information they need without feeling lost. It is a core component of UX design and is often visualized through sitemaps, navigation flows, and content hierarchies."
+  },
+  {
+    "question": "What is a prototype?",
+    "answer": "A prototype is an early, interactive version of a product used for testing and gathering feedback. Prototypes can range from low-fidelity paper sketches to high-fidelity, clickable digital mockups that closely resemble the final product. The goal of a prototype is to quickly and affordably test design concepts and user flows before committing to full-scale development, helping to identify and solve usability issues early on."
+  },
+  {
+    "question": "What is A/B testing?",
+    "answer": "A/B testing, also known as split testing, is a research method used to compare two versions of a product (A and B) to see which one performs better. For example, a company might test two different button colors or headline variations on a webpage to see which one generates more clicks. A/B testing is a data-driven approach that helps designers make informed decisions by measuring user behavior and preferences."
+  },
+  {
+    "question": "What is a design system?",
+    "answer": "A design system is a comprehensive set of standards, principles, and reusable components that guides the design and development of a digital product. It includes elements like a style guide (colors, typography), a component library (buttons, forms), and design tokens. A design system ensures visual consistency and helps teams work more efficiently by providing a single source of truth for all design decisions."
+  },
+  {
+    "question": "What are the principles of good UI design?",
+    "answer": "Good UI design is guided by several principles, including **consistency** (using the same design elements throughout the product), **clarity** (making elements easy to understand), **hierarchy** (organizing information logically), and **feedback** (providing users with visual or auditory cues when they interact with an element). These principles help create an interface that is intuitive, predictable, and easy to use."
+  },
+  {
+    "question": "What is accessibility in UI/UX design?",
+    "answer": "Accessibility (often abbreviated as a11y) is the practice of designing and developing websites and applications that are usable by people of all abilities, including those with disabilities. This includes people with visual, auditory, cognitive, or motor impairments. Key aspects of accessible design include providing alternative text for images, ensuring proper color contrast, and designing for keyboard-only navigation."
+  },
+  {
+    "question": "What is responsive design?",
+    "answer": "Responsive design is a design approach that aims to make web pages render well on a variety of devices and screen sizes, from desktops to mobile phones. This is achieved through flexible grids, images, and media queries in CSS. A responsive design ensures a consistent and optimal viewing experience for all users, regardless of the device they use."
+  },
+  {
+    "question": "What is a sitemap?",
+    "answer": "A sitemap is a diagram that visually represents the navigation and structure of a website or application. It shows how different pages are connected and organized hierarchically. A sitemap is a key tool in information architecture, helping designers and stakeholders understand the overall content structure and user flow. It’s an essential step before designing any user interface or navigation."
+  },
+  {
+    "question": "What is a 'Call to Action' (CTA)?",
+    "answer": "A 'Call to Action' (CTA) is a prompt on a website or application that encourages a user to take a specific action. CTAs are often in the form of buttons or links with text like 'Sign Up,' 'Buy Now,' or 'Learn More.' A well-designed CTA is visually prominent, clearly communicates the action, and is crucial for guiding users toward a desired outcome, such as making a purchase or subscribing to a newsletter."
+  }
+]

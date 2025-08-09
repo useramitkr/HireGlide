@@ -1,0 +1,70 @@
+[
+  {
+    "question": "What is a full-stack developer?",
+    "answer": "A full-stack developer is a versatile software engineer who works on both the client-side (frontend) and server-side (backend) of a web application. They have a comprehensive understanding of the entire technology stack, from user interfaces and client-side logic to server architecture, APIs, and databases. This allows them to build and maintain an application from end to end."
+  },
+  {
+    "question": "How do a frontend and a backend communicate with each other?",
+    "answer": "The frontend and backend typically communicate via APIs (Application Programming Interfaces). When a user interacts with the frontend (e.g., clicking a button), the frontend sends an HTTP request to a specific backend API endpoint. The backend processes this request, performs necessary operations (e.g., a database query), and sends a response back to the frontend, usually in a data format like JSON. The frontend then uses this data to update the UI."
+  },
+  {
+    "question": "What is the difference between a REST API and a GraphQL API?",
+    "answer": "A REST API is an architectural style that uses standard HTTP methods (GET, POST, PUT, DELETE) to perform operations on specific resources (e.g., /users, /posts). It often suffers from over-fetching or under-fetching data. A GraphQL API, on the other hand, is a query language that allows the client to request only the specific data it needs. The client sends a single query to a single endpoint, making it more efficient and flexible."
+  },
+  {
+    "question": "What is a common full-stack development stack?",
+    "answer": "A common full-stack development stack is the MERN stack, which stands for MongoDB (NoSQL database), Express.js (backend framework for Node.js), React (frontend library), and Node.js (JavaScript runtime). Another popular stack is the MEAN stack, which is similar but uses Angular instead of React for the frontend."
+  },
+  {
+    "question": "What are some best practices for managing environment variables in a full-stack application?",
+    "answer": "Best practices for managing environment variables include using a '.env' file to store sensitive information like database credentials and API keys. This file should be ignored by version control (e.g., via a .gitignore file) to prevent secrets from being exposed. In production, these variables should be managed by the hosting platform, and the application should be configured to read from these environment variables at runtime."
+  },
+  {
+    "question": "How do you handle user authentication and authorization across the full stack?",
+    "answer": "Authentication is handled by a backend API that verifies a user's identity. Upon successful login, the server generates a token (e.g., a JWT) and sends it to the frontend. The frontend stores this token (e.g., in local storage or a cookie) and includes it in the header of every subsequent request. The backend then uses middleware to validate the token and authorize the request by checking if the user has the necessary permissions. This provides a stateless and scalable authentication method."
+  },
+  {
+    "question": "What is a CORS error and how do you fix it?",
+    "answer": "A CORS (Cross-Origin Resource Sharing) error occurs when a web page's script tries to make a request to a different domain, protocol, or port than the one that served the web page. This is a browser security feature. To fix it, the backend server must be configured to send specific CORS headers (like `Access-Control-Allow-Origin`) in its response, explicitly telling the browser that it's safe to allow requests from the frontend's origin."
+  },
+  {
+    "question": "What is the purpose of an ORM?",
+    "answer": "An ORM (Object-Relational Mapper) is a tool that allows a backend developer to interact with a relational database using an object-oriented paradigm. Instead of writing raw SQL queries, you can use the ORM's methods to perform database operations (like creating or querying records) through objects in your programming language. This simplifies database interactions, making the code more readable, maintainable, and less prone to SQL injection attacks."
+  },
+  {
+    "question": "What is the difference between client-side rendering (CSR) and server-side rendering (SSR)?",
+    "answer": "In CSR, the browser downloads a minimal HTML file and then uses JavaScript to build the entire UI and fetch data. This is common in single-page applications and leads to a fast, dynamic user experience after the initial load. In SSR, the server generates the full HTML for the page on each request and sends it to the browser. This improves initial load times and is better for SEO, as search engine crawlers can easily see the full content."
+  },
+  {
+    "question": "What is a Docker container, and why is it useful for a full-stack developer?",
+    "answer": "A Docker container is a lightweight, standalone, and executable package of software that includes everything needed to run an application: code, runtime, system tools, and libraries. It's useful for full-stack developers because it provides a consistent, isolated environment for both the frontend and backend. This prevents 'it works on my machine' issues and simplifies deployment, as the container runs the same way on any server."
+  },
+  {
+    "question": "How would you handle form submissions and data validation?",
+    "answer": "First, the frontend sends a request with the form data to a backend API endpoint. The backend should always perform its own data validation to ensure data integrity and security, as client-side validation can be bypassed. If the data is valid, the backend processes it (e.g., saves it to a database) and sends a success response. If validation fails, the backend sends an error response with specific error messages that the frontend can display to the user."
+  },
+  {
+    "question": "Explain the concept of a 'stack' in full-stack development.",
+    "answer": "A 'stack' refers to the set of technologies used to build a full-stack application. It typically includes an operating system, a web server, a database, and a programming language or framework. For example, a LAMP stack consists of Linux, Apache, MySQL, and PHP. The term is a shorthand for the complete technology suite used to create and run an application, from the frontend to the infrastructure."
+  },
+  {
+    "question": "What is a monorepo, and what are its pros and cons for a full-stack project?",
+    "answer": "A monorepo (monolithic repository) is a single repository that contains the code for multiple projects, such as both the frontend and backend of an application. Pros include simplified code sharing and refactoring across projects, and a single versioning system. Cons include potential for larger repository sizes, slower build times, and the need for more complex tooling to manage dependencies and builds for each project."
+  },
+  {
+    "question": "What are some common security concerns for a full-stack application?",
+    "answer": "Common security concerns include Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), and SQL injection attacks. To mitigate these, a full-stack developer should always sanitize and validate all user input, use prepared statements for database queries, implement strong authentication and authorization, and properly configure HTTP headers like Content Security Policy (CSP) to prevent XSS."
+  },
+  {
+    "question": "What is the purpose of a database schema?",
+    "answer": "A database schema is a blueprint or a logical representation of the entire database. In a relational database, it defines the tables, the columns in each table, the data types, and the relationships between them. A well-designed schema is crucial for data integrity, efficient querying, and making the application scalable and maintainable. It ensures that data is stored in a consistent and organized manner."
+  },
+  {
+    "question": "What are microservices?",
+    "answer": "Microservices is an architectural style where an application is structured as a collection of small, independent services, each running in its own process and communicating with each other through APIs. Each service is responsible for a single business capability and can be developed, deployed, and scaled independently. This contrasts with a monolithic architecture, where all components are tightly coupled into a single application."
+  },
+  {
+    "question": "How do you optimize a full-stack application for performance?",
+    "answer": "Performance optimization involves both frontend and backend strategies. On the frontend, this includes code splitting, lazy loading, image optimization, and caching. On the backend, it involves database query optimization (e.g., using indexes), implementing caching mechanisms (e.g., Redis), using a CDN for static assets, and optimizing API response times. Profiling tools should be used to identify performance bottlenecks."
+  }
+]

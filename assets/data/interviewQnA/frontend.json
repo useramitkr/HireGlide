@@ -1,0 +1,242 @@
+[
+  {
+    "question": "What is HTML?",
+    "answer": "HTML, or HyperText Markup Language, is the standard markup language used to create the structure and content of a web page. It uses a system of tags and attributes to define elements like headings, paragraphs, links, and images. Browsers interpret this code to display the content as a visual page. HTML is the foundational skeleton of any website."
+  },
+  {
+    "question": "What is CSS?",
+    "answer": "CSS, or Cascading Style Sheets, is a style sheet language used to describe the presentation and styling of a document written in a markup language like HTML. It controls the visual layout of web pages, including colors, fonts, spacing, and animations. By separating style from content, CSS allows for more efficient and consistent design across a website."
+  },
+  {
+    "question": "How do you link CSS to an HTML page?",
+    "answer": "There are three main ways to link CSS: 1. Inline CSS, using the 'style' attribute on an HTML element. 2. Internal CSS, placing a <style> block within the <head> section of the HTML document. 3. External CSS, linking an external .css file using the <link> tag in the <head> section. External CSS is the most common and recommended method for code reusability and separation of concerns."
+  },
+  {
+    "question": "What is the CSS Box Model?",
+    "answer": "The CSS Box Model is a conceptual model that represents every HTML element as a rectangular box. This box is composed of four layers: the inner 'content', the transparent 'padding' around the content, the 'border' that wraps the padding, and the transparent 'margin' that separates the element from others. Understanding this model is crucial for controlling element layout and spacing."
+  },
+  {
+    "question": "What are the differences between display: block, display: inline, and display: inline-block?",
+    "answer": "'display: block' elements (e.g., <p>, <div>) start on a new line and take up full available width. 'display: inline' elements (e.g., <a>, <span>) don't start on a new line and only take up as much width as their content. 'display: inline-block' is a hybrid that displays the element inline but allows you to set its width, height, and all margin properties, giving more control."
+  },
+  {
+    "question": "What is a CSS selector?",
+    "answer": "A CSS selector is a pattern used to select the HTML elements you want to style. Common selectors include 'element' selectors (e.g., p, h1), 'class' selectors (e.g., .my-class), 'id' selectors (e.g., #my-id), and 'attribute' selectors (e.g., [type='text']). You can also combine selectors to target elements more specifically."
+  },
+  {
+    "question": "What is the difference between an ID and a class?",
+    "answer": "An ID is a unique identifier for a single HTML element on a page, and its value should be used only once. It is selected in CSS using the '#' symbol. A class is a name for a group of HTML elements that can be used multiple times on a single page. It is selected in CSS using the '.' symbol. Classes are best for applying styles to multiple elements, while IDs are for styling a single, specific element or for JavaScript targeting."
+  },
+  {
+    "question": "What is semantic HTML?",
+    "answer": "Semantic HTML uses tags that convey the meaning or purpose of the content they enclose, rather than just how the content should be displayed. Examples include <header>, <footer>, <article>, <section>, and <nav>. Using semantic tags improves accessibility for screen readers, makes code more readable, and helps with search engine optimization (SEO)."
+  },
+  {
+    "question": "What is the purpose of the 'meta' tag in HTML?",
+    "answer": "The 'meta' tag provides metadata about an HTML document. This metadata is not displayed on the page but is used by browsers, search engines, and other web services. Common uses include defining the character set (<meta charset='UTF-8'>), setting a description for SEO, or providing instructions for the viewport on mobile devices (<meta name='viewport' content='width=device-width, initial-scale=1.0'>)."
+  },
+  {
+    "question": "What is responsive web design?",
+    "answer": "Responsive web design is an approach to web development that makes web pages render well on a variety of devices and screen sizes. It uses techniques like fluid grids, flexible images, and media queries to adapt the layout and content of a website to the user's screen, providing an optimal viewing experience for all users."
+  },
+  {
+    "question": "What is a media query?",
+    "answer": "Media queries are a CSS technique used in responsive design to apply styles based on device characteristics, such as screen width, height, or orientation. They allow developers to create different layouts for different devices (e.g., a single-column layout for a phone and a multi-column layout for a desktop). A typical media query looks like: '@media (max-width: 600px) { ... }'."
+  },
+  {
+    "question": "What is a CSS preprocessor?",
+    "answer": "A CSS preprocessor is a scripting language that extends CSS and is compiled into regular CSS. They provide features that aren't available in standard CSS, such as variables, nesting, mixins, and functions. Popular preprocessors include Sass, Less, and Stylus. They help write cleaner, more maintainable, and more reusable stylesheets."
+  },
+  {
+    "question": "What is the difference between 'em' and 'rem' units?",
+    "answer": "'em' and 'rem' are both relative length units in CSS. 'em' is relative to the font size of its parent element, which can lead to unexpected cascading effects. 'rem' (root em) is relative to the font size of the root HTML element (e.g., the <html> tag). Using 'rem' for sizing is generally preferred as it provides more predictable and consistent scaling across the entire page."
+  },
+  {
+    "question": "What is the purpose of the 'DOCTYPE' declaration?",
+    "answer": "The 'DOCTYPE' declaration is a required instruction that tells the web browser which version of HTML the document is written in. It helps the browser render the page in 'standards mode,' preventing it from using quirky or legacy rendering behaviors. For modern HTML5, the declaration is simply: `<!DOCTYPE html>`."
+  },
+  {
+    "question": "What are pseudo-classes and pseudo-elements?",
+    "answer": "Pseudo-classes are used to define a special state of an element, such as when a user hovers over it (:hover), when it's the first child in a group (:first-child), or when a link has been visited (:visited). Pseudo-elements are used to style a specific part of an element, like the first letter of a paragraph (::first-letter) or the content before an element (::before). They allow for more dynamic and targeted styling."
+  },
+  {
+    "question": "What is Flexbox?",
+    "answer": "Flexbox (the Flexible Box Module) is a one-dimensional CSS layout model designed to help developers arrange items within a container. It provides a more efficient way to align items, distribute space, and control their order, regardless of their size. It is a powerful tool for creating flexible and responsive layouts, especially for aligning items in rows or columns."
+  },
+  {
+    "question": "What is CSS Grid?",
+    "answer": "CSS Grid is a two-dimensional CSS layout system that allows developers to create complex grid-based layouts. Unlike Flexbox, which works on a single dimension (row or column), Grid works with both rows and columns simultaneously. It provides powerful features for controlling the placement and sizing of elements within a grid, making it ideal for creating entire page layouts."
+  },
+  {
+    "question": "What is JavaScript?",
+    "answer": "JavaScript is a versatile, high-level programming language primarily used to add interactivity, control behavior, and dynamically update content on websites. It is supported by all modern web browsers and plays a crucial role in frontend development, alongside HTML and CSS. JavaScript can also be used on the server side using environments like Node.js."
+  },
+  {
+    "question": "What are the different data types in JavaScript?",
+    "answer": "JavaScript supports both primitive and non-primitive data types. Primitive types include string, number, boolean, null, undefined, symbol, and bigint. These are immutable and represent a single value. Non-primitive types include objects, arrays, and functions, which can hold multiple values and are mutable."
+  },
+  {
+    "question": "What is the difference between var, let, and const?",
+    "answer": "In JavaScript, 'var' is function-scoped and can be re-declared and updated. 'let' and 'const' are block-scoped, introduced in ES6. 'let' allows reassignment but not re-declaration within the same scope. 'const' is used for values that should not change, and attempting to reassign a 'const' variable will result in an error. 'var' is hoisted to the top of its scope and initialized as undefined, while 'let' and 'const' are hoisted but not initialized."
+  },
+  {
+    "question": "What is hoisting in JavaScript?",
+    "answer": "Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase. This means variables declared with 'var' and function declarations can be accessed before their actual line of declaration. However, variables declared with 'let' and 'const' are hoisted but not initialized, leading to a 'ReferenceError' if accessed before declaration."
+  },
+  {
+    "question": "What are template literals?",
+    "answer": "Template literals are a feature introduced in ES6 that allows easier string creation and formatting. They use backticks (``) instead of quotes and support multi-line strings as well as embedded expressions using the `${expression}` syntax. This makes it more readable and manageable to construct dynamic strings in JavaScript."
+  },
+  {
+    "question": "What is the difference between == and ===?",
+    "answer": "The '==' operator checks for equality of values after performing type coercion, meaning it converts the operands to the same type before comparing. The '===' operator, also known as the strict equality operator, checks for both value and type equality without performing any type conversion, making it a safer and more predictable comparison method."
+  },
+  {
+    "question": "What is an arrow function?",
+    "answer": "Arrow functions are a concise way to write function expressions introduced in ES6. They are anonymous and use the '=>' syntax. One of the key differences from regular functions is that arrow functions do not have their own 'this' context; instead, they inherit it from the parent scope. This makes them particularly useful in callback functions or inside classes."
+  },
+  {
+    "question": "What is a closure?",
+    "answer": "A closure is a feature in JavaScript where a function has access to its own scope, the outer function's scope, and the global scope. This means even after the outer function has returned, the inner function can still access the variables of the outer function. Closures are commonly used for data privacy and to maintain state in asynchronous operations."
+  },
+  {
+    "question": "What is the DOM?",
+    "answer": "The Document Object Model (DOM) is a programming interface that represents the structure of an HTML or XML document as a tree of objects. JavaScript can use the DOM to read, modify, add, or remove elements and content on a web page, enabling dynamic updates without reloading the page."
+  },
+  {
+    "question": "What is event bubbling?",
+    "answer": "Event bubbling is a concept in the DOM where an event starts from the deepest (most specific) target element and then bubbles up to its ancestors in the hierarchy. For example, if a click event happens on a button inside a div, the event first runs on the button, then on the parent div, and so on. Developers can stop this behavior using the stopPropagation() method."
+  },
+  {
+    "question": "What is an IIFE in JavaScript?",
+    "answer": "IIFE stands for Immediately Invoked Function Expression. It is a function that runs immediately after it is defined. The syntax involves wrapping the function in parentheses and then adding another pair of parentheses to invoke it. IIFEs are commonly used to avoid polluting the global scope and to create private variables."
+  },
+  {
+    "question": "What is NaN in JavaScript?",
+    "answer": "NaN stands for 'Not-a-Number'. It is a special value returned when an operation that expects a number fails to produce a valid number. For example, dividing a string by a number or parsing an invalid string to a number returns NaN. NaN is of type 'number' but is not equal to any value, including itself."
+  },
+  {
+    "question": "What is the difference between null and undefined?",
+    "answer": "'null' is an assignment value that represents no value or object. It is intentionally assigned to indicate that a variable should be empty. 'undefined' means a variable has been declared but has not yet been assigned a value. Both are falsy values but represent different meanings."
+  },
+  {
+    "question": "What are JavaScript promises?",
+    "answer": "A Promise is an object representing the eventual completion or failure of an asynchronous operation. It has three states: pending, fulfilled, and rejected. Promises help in avoiding callback hell and make asynchronous code easier to manage and chain using .then() and .catch() methods."
+  },
+  {
+    "question": "What is async/await in JavaScript?",
+    "answer": "Async/await is a syntactic feature introduced in ES8 that allows writing asynchronous code in a synchronous-looking manner. Functions marked as 'async' return a Promise, and 'await' pauses the execution until the Promise resolves or rejects. This improves code readability and error handling."
+  },
+  {
+    "question": "What is the spread operator?",
+    "answer": "The spread operator (...) allows an iterable like an array or object to be expanded into individual elements or properties. It is commonly used for copying arrays, merging objects, or passing arguments to functions."
+  },
+  {
+    "question": "What is the rest parameter in JavaScript?",
+    "answer": "The rest parameter syntax allows a function to accept an indefinite number of arguments as an array. It uses the same '...' syntax as the spread operator but is used in function parameters to gather remaining arguments."
+  },
+  {
+    "question": "What are higher-order functions?",
+    "answer": "A higher-order function is a function that either takes another function as an argument or returns a function as a result. Functions like map(), filter(), and reduce() are examples of higher-order functions and are widely used in functional programming."
+  },
+  {
+    "question": "What is 'this' keyword in JavaScript?",
+    "answer": "The 'this' keyword refers to the object it belongs to. In global scope, 'this' refers to the global object (window in browsers). Inside a method, 'this' refers to the owner object. In arrow functions, 'this' is lexically bound and refers to the enclosing context."
+  },
+  {
+    "question": "What is the difference between call(), apply(), and bind()?",
+    "answer": "'call()' and 'apply()' invoke functions with a specified 'this' value. 'call()' takes arguments separately, while 'apply()' takes arguments as an array. 'bind()' returns a new function with 'this' bound permanently, which can be invoked later."
+  },
+  {
+    "question": "What are array methods map(), filter(), and reduce()?",
+    "answer": "'map()' creates a new array by applying a function to each element. 'filter()' returns a new array with elements that pass a test. 'reduce()' applies a function against an accumulator and each element to reduce the array to a single value."
+  },
+  {
+    "question": "What is event delegation?",
+    "answer": "Event delegation is a technique where a single event listener is added to a parent element to manage events for its child elements. It works because of event bubbling and helps improve performance by reducing the number of event listeners."
+  },
+  {
+    "question": "What is the difference between synchronous and asynchronous code?",
+    "answer": "Synchronous code executes sequentially, blocking the next line until the current one finishes. Asynchronous code allows the program to continue running while waiting for a task (like a network request) to complete, improving performance and responsiveness."
+  },
+  {
+    "question": "What is JSON and how is it used?",
+    "answer": "JSON (JavaScript Object Notation) is a lightweight data format used for storing and exchanging data between a server and a client. It is based on JavaScript object syntax and supports strings, numbers, arrays, booleans, null, and objects. It is commonly used in APIs."
+  },
+  {
+    "question": "What is destructuring in JavaScript?",
+    "answer": "Destructuring is a syntax that allows extracting values from arrays or properties from objects into separate variables. It simplifies code and makes it easier to work with complex structures."
+  },
+  {
+    "question": "What is type coercion in JavaScript?",
+    "answer": "Type coercion is the automatic or implicit conversion of values from one type to another. For example, JavaScript might convert a string to a number in arithmetic operations, which can lead to unexpected results if not handled carefully."
+  },
+  {
+    "question": "What is a callback function?",
+    "answer": "A callback is a function passed as an argument to another function and is executed after the completion of that function. Callbacks are widely used in asynchronous programming to handle events and responses."
+  },
+  {
+    "question": "What are truthy and falsy values?",
+    "answer": "Truthy values are those that evaluate to true in a Boolean context (e.g., 'hello', 1, [], {}). Falsy values include false, 0, '', null, undefined, and NaN. Understanding these helps prevent bugs in conditional statements."
+  },
+  {
+    "question": "What is the difference between for...in and for...of loops?",
+    "answer": "'for...in' iterates over enumerable properties (keys) of an object, while 'for...of' iterates over the values of iterable objects like arrays, strings, and sets. 'for...of' cannot be used on plain objects unless made iterable."
+  },
+  {
+    "question": "What is a promise chain?",
+    "answer": "A promise chain is a sequence of .then() methods attached to a Promise, allowing multiple asynchronous operations to be executed in a specific order. Each .then() receives the result of the previous one, enabling structured and readable async code."
+  },
+  {
+    "question": "What is the purpose of a CDN?",
+    "answer": "A CDN (Content Delivery Network) is a network of distributed servers that deliver web content to users based on their geographic location. CDNs reduce latency by bringing content closer to the user, which improves website performance and load times. They are often used to host libraries and frameworks like jQuery or Bootstrap."
+  },
+  {
+    "question": "What is accessibility (a11y) in web development?",
+    "answer": "Accessibility (often shortened to 'a11y') is the practice of making websites usable by people of all abilities, including those with disabilities. This involves using semantic HTML, providing alternative text for images, ensuring proper color contrast, and designing for keyboard navigation, among other things. Accessible websites are more inclusive and have a broader user base."
+  },
+  {
+    "question": "What is a single-page application (SPA)?",
+    "answer": "A single-page application (SPA) is a web application that loads a single HTML page and dynamically updates content as the user interacts with it, rather than loading new pages from the server. This provides a more fluid and app-like experience. Frameworks like React, Angular, and Vue.js are commonly used to build SPAs."
+  },
+  {
+    "question": "What are the core principles of React?",
+    "answer": "React is a JavaScript library for building user interfaces. Its core principles include: 1. A component-based architecture, where the UI is broken down into reusable pieces. 2. A declarative approach, where you describe what the UI should look like for a given state, and React handles the updates. 3. The use of a virtual DOM, which makes updates efficient by only re-rendering the necessary parts of the UI."
+  },
+  {
+    "question": "What is the Virtual DOM?",
+    "answer": "The Virtual DOM is a lightweight, in-memory representation of the actual DOM. When the state of an application changes, React creates a new Virtual DOM and compares it to the previous one using a 'diffing' algorithm. It then calculates the most efficient way to update the real DOM, minimizing expensive direct manipulations and improving performance."
+  },
+  {
+    "question": "What is a React component?",
+    "answer": "A React component is an independent, reusable piece of code that represents a part of the user interface. Components can be either functional components (simple JavaScript functions) or class components (ES6 classes). They can receive data through 'props' and manage their own state, making them the fundamental building blocks of a React application."
+  },
+  {
+    "question": "What are props in React?",
+    "answer": "Props (short for properties) are a mechanism for passing data from a parent component to a child component in React. Props are immutable, meaning a child component cannot change the values it receives from its parent. This 'one-way data flow' helps maintain a predictable and easy-to-debug application state."
+  },
+  {
+    "question": "What is state in React?",
+    "answer": "State is an object that holds data that may change over time and affects the component's rendering. Unlike props, state is local to a component and can be updated using the `setState` method (or the `useState` hook in functional components). When the state changes, React re-renders the component to reflect the new data."
+  },
+  {
+    "question": "What are hooks in React?",
+    "answer": "Hooks are functions that let you 'hook into' React state and lifecycle features from functional components. They were introduced in React 16.8 to allow developers to use state and other features without writing a class. The most common hooks are `useState` for managing state and `useEffect` for handling side effects like data fetching or DOM manipulation."
+  },
+  {
+    "question": "What is the purpose of the 'key' prop in React lists?",
+    "answer": "The 'key' prop is a special string attribute that you must include when creating lists of elements in React. React uses keys to identify which items have changed, been added, or been removed. Providing a unique, stable key for each item helps React efficiently update the UI and prevents potential performance issues or bugs."
+  },
+  {
+    "question": "What is the difference between a controlled and uncontrolled component in React?",
+    "answer": "A controlled component has its state and value managed entirely by React. The input's value is stored in the component's state, and every change triggers an event handler that updates the state. An uncontrolled component, on the other hand, lets the DOM handle its own state. The value is accessed when needed using a 'ref' rather than through state updates."
+  },
+  {
+    "question": "What is Redux?",
+    "answer": "Redux is a predictable state container for JavaScript apps. It helps manage the application's state in a centralized location, making it easier to debug and understand how data flows. It follows a strict unidirectional data flow and consists of three core concepts: a single 'store' for the state, 'actions' to describe state changes, and 'reducers' to handle those changes."
+  },
+  {
+    "question": "What is the difference between client-side and server-side rendering?",
+    "answer": "In client-side rendering (CSR), the browser downloads a minimal HTML page and then uses JavaScript to build the entire DOM and render the content. This is typical for SPAs. In server-side rendering (SSR), the server generates the full HTML for the page on each request and sends it to the browser. SSR improves initial load times and SEO, while CSR offers a more dynamic user experience after the initial load."
+  }
+]
