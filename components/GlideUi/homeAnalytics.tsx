@@ -111,7 +111,7 @@ const HomeAnalytics = () => {
                     <View style={styles.card}>
                         <Text style={styles.cardTitle}>Users Applied</Text>
                         <Text style={styles.cardValue}>{userApplied}</Text>
-                        <Text style={styles.cardSubtitle}>Total users since launch</Text>
+                        <Text style={styles.cardSubtitle}>Total recently applied users</Text>
                         <View style={styles.cardSubText}>
                             <FontAwesome6 name={userAppliedIndicator.icon} size={14} color={userAppliedIndicator.color} />
                             <Text style={{color: userAppliedIndicator.color, marginLeft: 4}}>{userAppliedChange}</Text>
