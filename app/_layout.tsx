@@ -7,6 +7,7 @@ import 'react-native-reanimated';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import AppLayout from '@/components/wrapper/AppLayout';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -19,25 +20,27 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-        <Stack
-          screenOptions={{
-            headerStyle: { backgroundColor: colorScheme === 'dark' ? '#000' : '#fff' },
-            headerTintColor: colorScheme === 'dark' ? '#fff' : '#000',
-            headerTitleStyle: { fontWeight: 'bold' },
-            headerTransparent: false,
-          }}
-        >
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar
-          style={colorScheme === 'dark' ? 'light' : 'dark'} // readable icons
-          backgroundColor={colorScheme === 'dark' ? '#000' : '#fff'} // solid background
-          translucent={false} // don't overlay content
-        />
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <AppLayout>
+      <SafeAreaProvider>
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+          <Stack
+            screenOptions={{
+              headerStyle: { backgroundColor: colorScheme === 'dark' ? '#000' : '#fff' },
+              headerTintColor: colorScheme === 'dark' ? '#fff' : '#000',
+              headerTitleStyle: { fontWeight: 'bold' },
+              headerTransparent: false,
+            }}
+          >
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+          <StatusBar
+            style={colorScheme === 'dark' ? 'light' : 'dark'} // readable icons
+            backgroundColor={colorScheme === 'dark' ? '#000' : '#fff'} // solid background
+            translucent={false} // don't overlay content
+          />
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </AppLayout>
   );
 }
