@@ -9,6 +9,6 @@ export const isBlockedByThankYouTimer = async (): Promise<boolean> => {
 
 // To start the block timer
 export const startThankYouTimer = async (): Promise<void> => {
-  const blockUntil = Date.now() + 2 * 60 * 1000; //minutes in ms
+  const blockUntil = Date.now() + 20 * 60 * 1000; //20 minutes in ms
   await AsyncStorage.setItem('thankYouBlockUntil', blockUntil.toString());
 };
