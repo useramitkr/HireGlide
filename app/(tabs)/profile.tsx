@@ -15,6 +15,8 @@ import LogoutDel from '@/components/GlideUi/logoutDel';
 import ApplicationProgressReport from '@/components/GlideUi/ApplicationProgressReport';
 import ResumeBoxes from '@/components/GlideUi/resumeBoxes';
 import ResumeAlert from '@/components/GlideUi/resumeAlert';
+import HowItWorksCard from '@/components/GlideUi/howItWorks';
+import TncCard from '@/components/GlideUi/TncCard';
 
 const Profile = () => {
   const router = useRouter();
@@ -112,6 +114,8 @@ const Profile = () => {
           <ApplicationProgressReport />
           <ResumeBoxes />
           <ResumeAlert />
+          <HowItWorksCard />
+          <TncCard />
           <LogoutDel />
         </>
       )}
@@ -126,7 +130,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#f8f9fa',
     flexGrow: 1,
-    paddingBottom: 200,
+    paddingBottom: 100,
   },
   profileTop: {
     flexDirection: 'row',

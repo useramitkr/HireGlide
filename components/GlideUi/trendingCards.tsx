@@ -9,38 +9,38 @@ const TrendingCards = () => {
     const router = useRouter();
 
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    
-      useEffect(() => {
+
+    useEffect(() => {
         const checkLoginStatus = async () => {
-          try {
-            const loggedIn = await isUserLoggedIn();
-            setIsLoggedIn(loggedIn);
-          } catch (error) {
-            console.error('Failed to check login status:', error);
-            setIsLoggedIn(false);
-          }
+            try {
+                const loggedIn = await isUserLoggedIn();
+                setIsLoggedIn(loggedIn);
+            } catch (error) {
+                console.error('Failed to check login status:', error);
+                setIsLoggedIn(false);
+            }
         };
         checkLoginStatus();
-      }, []);
-    
-      const handleAccess = async (route: string) => {
+    }, []);
+
+    const handleAccess = async (route: string) => {
         if (isLoggedIn) {
-          router.push(route as any);
+            router.push(route as any);
         } else {
-          Alert.alert(
-            "Login Required",
-            "Please login to access these features.",
-            [
-              { text: "Cancel", style: "cancel" },
-              {
-                text: "Okay",
-                onPress: () => router.push('/screens/auth/login'),
-              }
-            ],
-            { cancelable: true }
-          );
+            Alert.alert(
+                "Login Required",
+                "Please login to access these features.",
+                [
+                    { text: "Cancel", style: "cancel" },
+                    {
+                        text: "Okay",
+                        onPress: () => router.push('/screens/auth/login'),
+                    }
+                ],
+                { cancelable: true }
+            );
         }
-      };
+    };
 
     return (
         <ScrollView
@@ -70,25 +70,24 @@ const TrendingCards = () => {
                 </Pressable>
             </View>
 
-            {/* 02. AI Interview Simulator */}
-            <View style={[styles.card, { backgroundColor: '#e57f6bfd' }]}>
+            {/* 02. Job Application Tracker */}
+            <View style={[styles.card, { backgroundColor: '#b1721aff' }]}>
                 <View style={styles.header}>
-                    <FontAwesome6 name="circle-check" size={20} color="white" />
-                    <Text style={styles.cardTab}>Career Boost</Text>
+                    <FontAwesome6 name="list-check" size={20} color="white" />
+                    <Text style={styles.cardTab}>Stay Organized</Text>
                 </View>
 
                 <View style={styles.content}>
                     <Text style={styles.mainText}>
-                        Get instant feedback with our <Text style={styles.highlightText}>AI Interview</Text> simulator.
+                        Track status of application in one <Text style={styles.highlightText}>central dashboard</Text>.
                     </Text>
                     <Text style={styles.subText}>
-                        Practice questions from top companies.
+                        Never miss a follow-up again.
                     </Text>
                 </View>
 
-                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]}>
-                    {/* <Text style={[styles.actionButtonText, { color: '#e5806b' }]}>Practice Now</Text> */}
-                    <Text style={[styles.actionButtonText, { color: '#e5806b' }]}>Coming Soon!</Text>
+                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]} onPress={() => handleAccess('/profile')}>
+                    <Text style={[styles.actionButtonText, { color: '#b1721a' }]}>View Dashboard</Text>
                 </Pressable>
             </View>
 
@@ -114,24 +113,29 @@ const TrendingCards = () => {
                 </Pressable>
             </View>
 
-            {/* 04. Job Application Tracker */}
-            <View style={[styles.card, { backgroundColor: '#b1721aff' }]}>
+            {/* 04, "How This App Works" Card */}
+            <View style={[styles.card, { backgroundColor: '#ad6253fd' }]}>
                 <View style={styles.header}>
-                    <FontAwesome6 name="list-check" size={20} color="white" />
-                    <Text style={styles.cardTab}>Stay Organized</Text>
+                    <FontAwesome6 name="lightbulb" size={20} color="white" />
+                    <Text style={styles.cardTab}>Learn More</Text>
                 </View>
 
                 <View style={styles.content}>
                     <Text style={styles.mainText}>
-                        Track status of application in one <Text style={styles.highlightText}>central dashboard</Text>.
+                        Find out <Text style={styles.highlightText}>how HireGlide works</Text> behind the scenes.
                     </Text>
                     <Text style={styles.subText}>
-                        Never miss a follow-up again.
+                        Understand our automation process in detail.
                     </Text>
                 </View>
 
-                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]} onPress={() => handleAccess('/profile')}>
-                    <Text style={[styles.actionButtonText, { color: '#b1721a' }]}>View Dashboard</Text>
+                <Pressable
+                    style={[styles.actionButton, { backgroundColor: '#fff' }]}
+                    onPress={() => router.push('/screens/legal/howItWorksSteps')}
+                >
+                    <Text style={[styles.actionButtonText, { color: '#ad6253fd' }]}>
+                        View Details
+                    </Text>
                 </Pressable>
             </View>
 
