@@ -4,10 +4,9 @@ import {
   StyleSheet,
   ScrollView,
   Alert,
-  Pressable,
   Platform
 } from 'react-native';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { getUserData, isUserLoggedIn } from '@/utils/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
@@ -32,7 +31,7 @@ const Profile = () => {
   const [loggedIn, setLoggedIn] = useState(false);
 
   // Fetches user data from storage
-  const getData = async () => {
+  const getData = useCallback (async () => {
     const loginStatus = await isUserLoggedIn();
     setLoggedIn(loginStatus);
 
@@ -80,11 +79,11 @@ const Profile = () => {
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
-  };
+  }, [router])
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
