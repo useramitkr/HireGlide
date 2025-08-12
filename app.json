@@ -10,10 +10,7 @@
     "newArchEnabled": true,
 
     "ios": {
-      "supportsTablet": true,
-      "config": {
-        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~1458002511"
-      }
+      "supportsTablet": true
     },
 
     "android": {
@@ -23,12 +20,9 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true,
-      "config": {
-        "googleMobileAdsAppId": "ca-app-pub-3940256099942544~1458002511"
-      }
+      "edgeToEdgeEnabled": true
     },
-    
+
     "web": {
       "bundler": "metro",
       "output": "static",
@@ -45,8 +39,7 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ],
-      "expo-ads-admob"
+      ]
     ],
 
     "experiments": {

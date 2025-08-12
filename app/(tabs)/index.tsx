@@ -5,12 +5,11 @@ import ResumeAlert from '@/components/GlideUi/resumeAlert';
 import ServiceBoxes from '@/components/GlideUi/serviceBoxes';
 import TrendingCards from '@/components/GlideUi/trendingCards';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Stack, useRouter } from 'expo-router';
+import { Stack } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Pressable, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
-  const router = useRouter();
 
   // State to track whether user is logged in
   const [loggedIn, setLoggedIn] = useState(false);
