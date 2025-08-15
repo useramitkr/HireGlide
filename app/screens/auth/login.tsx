@@ -16,6 +16,7 @@ import {
 import React, { useState } from 'react';
 import { Stack, useRouter } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { DEMO_USER_DATA, storeUserData } from '@/utils/storage';
 
 const Login = () => {
     const router = useRouter();
@@ -34,13 +35,39 @@ const Login = () => {
             Alert.alert('Invalid Email', 'Please enter a valid email address.');
             return;
         }
+        
+        // Check for demo credentials first
+        if (email.trim() === DEMO_USER_DATA.email && password === DEMO_USER_DATA.password) {
+            try {
+                // Save the demo user data to AsyncStorage
+                await storeUserData(DEMO_USER_DATA);
+                Alert.alert('Success', 'Login successful!');
+                router.replace('/');
+            } catch (error) {
+                console.error('Error logging in with demo account:', error);
+                Alert.alert('Error', 'Something went wrong with the demo login.');
+            }
+            return;
+        }
 
         try {
             const storedEmail = await AsyncStorage.getItem('userEmail');
             const storedPassword = await AsyncStorage.getItem('userPassword');
+            const storedPhone = await AsyncStorage.getItem('userPhone');
+            const storedState = await AsyncStorage.getItem('userState');
+            const storedName = await AsyncStorage.getItem('userName');
+
 
             if (email.trim() === storedEmail && password === storedPassword) {
-                await AsyncStorage.setItem('isLoggedIn', 'true');
+                // If credentials match, create a user object and store it
+                const user = {
+                    name: storedName,
+                    email: storedEmail,
+                    password: storedPassword,
+                    phone: storedPhone,
+                    state: storedState
+                };
+                await storeUserData(user);
                 Alert.alert('Success', 'Login successful!');
                 router.replace('/');
             } else {
@@ -51,8 +78,6 @@ const Login = () => {
             Alert.alert('Error', 'Something went wrong. Please try again later.');
         }
     };
-
-
 
     return (
         <>
@@ -135,7 +160,7 @@ const Login = () => {
                                     <TouchableOpacity
                                         onPress={() => router.push('/')}
                                     >
-                                        <Text style={styles.forgotPassword}>Forgot Password?</Text>
+                                        <Text style={styles.forgotPassword}>Back to Home</Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>

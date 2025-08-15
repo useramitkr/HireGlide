@@ -3,10 +3,20 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const USER_KEY = 'user';
 const LOGIN_KEY = 'isLoggedIn';
 
+// Pre-built demo user data for manual login.
+export const DEMO_USER_DATA = {
+  name: 'Demo Singh',
+  email: 'demo@hireglide.com',
+  password: '12345',
+  phone: '9876543210',
+  state: 'Bihar',
+};
+
 /**
- * Save user data and mark user as logged in
+ * Saves user data and a login status flag to AsyncStorage.
+ * @param user The user object to be stored.
  */
-export const storeUserData = async (user: object) => {
+export const storeUserData = async (user: any) => {
   try {
     await AsyncStorage.setItem(USER_KEY, JSON.stringify(user));
     await AsyncStorage.setItem(LOGIN_KEY, 'true');
@@ -16,9 +26,10 @@ export const storeUserData = async (user: object) => {
 };
 
 /**
- * Get stored user data
+ * Retrieves the user object from AsyncStorage.
+ * @returns The user object or null if not found.
  */
-export const getUserData = async (): Promise<any | null> => {
+export const getUserData = async () => {
   try {
     const data = await AsyncStorage.getItem(USER_KEY);
     return data ? JSON.parse(data) : null;
@@ -29,9 +40,10 @@ export const getUserData = async (): Promise<any | null> => {
 };
 
 /**
- * Check if user is logged in
+ * Checks if a user is currently logged in.
+ * @returns A boolean indicating the login status.
  */
-export const isUserLoggedIn = async (): Promise<boolean> => {
+export const isUserLoggedIn = async () => {
   try {
     const status = await AsyncStorage.getItem(LOGIN_KEY);
     return status === 'true';
@@ -42,7 +54,7 @@ export const isUserLoggedIn = async (): Promise<boolean> => {
 };
 
 /**
- * Clear user data and mark user as logged out
+ * Clears user-related data from AsyncStorage.
  */
 export const clearUserData = async () => {
   try {
