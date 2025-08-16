@@ -7,6 +7,7 @@ import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { FontAwesome6 } from '@expo/vector-icons';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -34,6 +35,17 @@ export default function TabLayout() {
       }}
     >
 
+      {/* Internship tab */}
+      <Tabs.Screen
+        name="internship"
+        options={{
+          title: 'Internship',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome6 name="briefcase" size={24} color={color} />
+          ),
+        }}
+      />
+      {/* Home tab */}
       <Tabs.Screen
         name="index"
         options={{
@@ -43,6 +55,7 @@ export default function TabLayout() {
           ),
         }}
       />
+      {/* Dashboard tab */}
       <Tabs.Screen
         name="profile"
         options={{
