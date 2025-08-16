@@ -9,14 +9,14 @@ const ResumeBoxes = () => {
     return (
         <View style={styles.container}>
             {/* ATS Friendly Resume Builder Card */}
-            <Pressable style={styles.boxContainer} onPress={() => {}}>
+            <Pressable style={styles.boxContainer} onPress={() => {router.push('/screens/profile/resumeBuilder')}}>
                 <View style={styles.contentRow}>
                     <View style={styles.iconBackground}>
                         <FontAwesome6 name="wave-square" size={24} color="#6b7280" />
                     </View>
                     <View style={styles.textWrapper}>
-                        <Text style={styles.boxTitle}>ATS Friendly Resume Builder</Text>
-                        <Text style={styles.boxSubtitle}>Coming soon!</Text>
+                        <Text style={styles.boxTitle}>ATS Friendly Resume</Text>
+                        <Text style={styles.boxSubtitle}>Update Before Apply</Text>
                     </View>
                 </View>
                 {/* <View style={styles.arrowIcon}>
@@ -34,8 +34,8 @@ const ResumeBoxes = () => {
                         <FontAwesome6 name="upload" size={24} color="#6b7280" />
                     </View>
                     <View style={styles.textWrapper}>
-                        <Text style={styles.boxTitle}>Update/Upload Your Resume</Text>
-                        <Text style={styles.boxSubtitle}>Current resume on file</Text>
+                        <Text style={styles.boxTitle}>Upload Your Resume</Text>
+                        <Text style={styles.boxSubtitle}>Update Before Apply</Text>
                     </View>
                 </View>
                 {/* <View style={styles.arrowIcon}>

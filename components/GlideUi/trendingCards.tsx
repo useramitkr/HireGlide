@@ -91,25 +91,24 @@ const TrendingCards = () => {
                 </Pressable>
             </View>
 
-            {/* 03. Resume Builder */}
+            {/* 03. Resume */}
             <View style={[styles.card, { backgroundColor: '#467743ff' }]}>
                 <View style={styles.header}>
                     <FontAwesome6 name="file-lines" size={20} color="white" />
-                    <Text style={styles.cardTab}>Resume Master</Text>
+                    <Text style={styles.cardTab}>Resume</Text>
                 </View>
 
                 <View style={styles.content}>
                     <Text style={styles.mainText}>
-                        Build and optimize your resume for <Text style={styles.highlightText}>AI-driven hiring</Text> systems.
+                        Update your optimize resume for <Text style={styles.highlightText}>AI-driven hiring</Text> systems.
                     </Text>
                     <Text style={styles.subText}>
                         Stand out to recruiters and get shortlisted.
                     </Text>
                 </View>
 
-                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]}>
-                    {/* <Text style={[styles.actionButtonText, { color: '#467743ff' }]}>Build My Resume</Text> */}
-                    <Text style={[styles.actionButtonText, { color: '#467743ff' }]}>Coming Soon!</Text>
+                <Pressable style={[styles.actionButton, { backgroundColor: '#fff' }]} onPress={() => handleAccess('/screens/profile/resumeBuilder')}>
+                    <Text style={[styles.actionButtonText, { color: '#467743ff' }]}>Update Resume</Text>
                 </Pressable>
             </View>
 
