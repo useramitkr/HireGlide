@@ -62,7 +62,7 @@ export default function ResumeUpload() {
     const handleFileSelect = async () => {
         try {
             const result = await DocumentPicker.getDocumentAsync({
-                type: '*/*',
+                type: 'application/pdf',
                 copyToCacheDirectory: true,
                 multiple: false,
             });
