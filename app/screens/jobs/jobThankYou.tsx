@@ -1,6 +1,6 @@
-import { ScrollView, StyleSheet, Text, View, Pressable, Image, Dimensions } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { Stack, useRouter } from 'expo-router';
+import { ScrollView, StyleSheet, Text, View, Pressable, Image, Dimensions, Platform, Linking, BackHandler } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { Stack, useFocusEffect, useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { FontAwesome } from '@expo/vector-icons';
 import { startThankYouTimer } from '@/utils/timerUtils';
@@ -26,6 +26,39 @@ const ThankYou: React.FC = () => {
     startThankYouTimer();
   }, []);
 
+  // Function to handle opening the app store link
+  const handleRateApp = () => {
+    // Determine the correct URL based on the platform
+    const url = Platform.select({
+      // ios: 'https://apps.apple.com/us/app/hireglide/idXXXXXXXXX', // Replace with your actual App Store ID
+      android: 'market://details?id=com.amekr.hireglide', 
+      default: 'https://play.google.com/store/apps/details?id=com.amekr.hireglide',
+    });
+
+    if (url) {
+      Linking.openURL(url).catch((err) => {
+        console.error('Failed to open app store link:', err);
+      });
+    }
+  };
+
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        // Return true to prevent the default back action (i.e., stay on the current screen)
+        return true;
+      };
+
+      // --- START OF CORRECTION ---
+      // Add the event listener and store the returned object
+      const backHandler = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      // Return a cleanup function to remove the event listener using the returned object
+      return () => backHandler.remove();
+      // --- END OF CORRECTION ---
+    }, [])
+  );
+
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <Stack.Screen
@@ -36,7 +69,7 @@ const ThankYou: React.FC = () => {
           },
           headerTintColor: '#ffffff',
           headerBackVisible: false, // Hides top left back button
-          gestureEnabled: false,    // Disables swipe back gesture
+          gestureEnabled: false,    // Disables swipe back gesture
         }}
       />
       <StatusBar style="light" />
@@ -95,15 +128,15 @@ const ThankYou: React.FC = () => {
         <View style={styles.rateExperienceContainer}>
           <Text style={styles.rateExperienceTitle}>Rate your experience</Text>
           <View style={styles.ratingsContainer}>
-            <Pressable style={styles.ratingButton}>
+            <Pressable style={styles.ratingButton} onPress={handleRateApp}>
               <Text style={styles.ratingEmoji}>😔</Text>
               <Text style={styles.ratingText}>Bad</Text>
             </Pressable>
-            <Pressable style={styles.ratingButton}>
+            <Pressable style={styles.ratingButton} onPress={handleRateApp}>
               <Text style={styles.ratingEmoji}>😐</Text>
               <Text style={styles.ratingText}>Okay</Text>
             </Pressable>
-            <Pressable style={styles.ratingButton}>
+            <Pressable style={styles.ratingButton} onPress={handleRateApp}>
               <Text style={styles.ratingEmoji}>😍</Text>
               <Text style={styles.ratingText}>Loved it</Text>
             </Pressable>
