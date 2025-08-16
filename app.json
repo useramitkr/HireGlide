@@ -2,7 +2,7 @@
   "expo": {
     "name": "HireGlide",
     "slug": "HireGlide",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "hireglide",
@@ -13,7 +13,7 @@
     },
     "android": {
       "package": "com.amekr.hireglide",
-      "versionCode": 2,
+      "versionCode": 10,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
