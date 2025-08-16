@@ -1,4 +1,5 @@
 // import BannerAds from '@/components/gAds/bannerAds';
+import Feedback from '@/components/GlideUi/feedback';
 import HomeAnalytics from '@/components/GlideUi/homeAnalytics';
 import JobCurator from '@/components/GlideUi/jobCurator';
 import ResumeAlert from '@/components/GlideUi/resumeAlert';
@@ -92,6 +93,7 @@ export default function HomeScreen() {
       <ServiceBoxes />
       <HomeAnalytics />
       <ResumeAlert />
+      <Feedback />
 
     </ScrollView>
   );
