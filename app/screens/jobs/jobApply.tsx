@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Stack, useRouter } from 'expo-router';
 import Checkbox from 'expo-checkbox'
 import { isBlockedByThankYouTimer } from '@/utils/timerUtils';
+import ApplicationTips from '@/components/GlideUi/ApplicationTips';
 
 const JobApply = () => {
 
@@ -52,6 +53,8 @@ const JobApply = () => {
         <StatusBar barStyle="light-content" />
         {/* Screen title end  */}
       </View>
+
+      <ApplicationTips />
 
       <View>
         <Text style={styles.title}>
