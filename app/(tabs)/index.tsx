@@ -5,9 +5,9 @@ import ResumeAlert from '@/components/GlideUi/resumeAlert';
 import ServiceBoxes from '@/components/GlideUi/serviceBoxes';
 import TrendingCards from '@/components/GlideUi/trendingCards';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Stack } from 'expo-router';
-import { useEffect, useState } from 'react';
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Stack, useFocusEffect } from 'expo-router';
+import { useCallback, useEffect, useState } from 'react';
+import { Alert, BackHandler, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
 
@@ -28,6 +28,34 @@ export default function HomeScreen() {
   useEffect(() => {
     checkLoginStatus();
   }, []);
+
+  // Use useFocusEffect to add a custom back button handler
+  useFocusEffect(
+    useCallback(() => {
+      const onBackPress = () => {
+        Alert.alert(
+          "Exit App",
+          "Do you want to close the app?",
+          [
+            {
+              text: "Cancel",
+              onPress: () => null, 
+              style: "cancel"
+            },
+            { 
+              text: "Yes", 
+              onPress: () => BackHandler.exitApp() 
+            }
+          ]
+        );
+        return true; 
+      };
+
+      const backHandler = BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+      return () => backHandler.remove();
+    }, [])
+  );
 
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -65,19 +93,6 @@ export default function HomeScreen() {
       <HomeAnalytics />
       <ResumeAlert />
 
-      {/* Temp Button to go to Login */}
-      {/* <Pressable
-        onPress={() => router.push('/screens/auth/login')}
-        style={{
-          padding: 16,
-          backgroundColor: '#0489D9',
-          borderRadius: 8,
-          alignItems: 'center',
-          margin: 5,
-        }}
-      >
-        <Text style={{ color: 'white' }}>Temporary Login Button</Text>
-      </Pressable> */}
     </ScrollView>
   );
 }
