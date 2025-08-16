@@ -6,10 +6,10 @@ import {
   Alert,
   Platform
 } from 'react-native';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { getUserData, isUserLoggedIn } from '@/utils/storage';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import LogoutDel from '@/components/GlideUi/logoutDel';
 import ApplicationProgressReport from '@/components/GlideUi/ApplicationProgressReport';
 import ResumeBoxes from '@/components/GlideUi/resumeBoxes';
@@ -30,7 +30,7 @@ const Profile = () => {
 
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // Fetches user data from storage
+  // Fetches user data from storage.
   const getData = useCallback (async () => {
     const loginStatus = await isUserLoggedIn();
     setLoggedIn(loginStatus);
@@ -40,7 +40,11 @@ const Profile = () => {
         'Login Required',
         'You need to log in to access these features.',
         [
-          { text: 'Cancel', style: 'cancel' },
+          { 
+            text: 'Cancel', 
+            style: 'cancel', 
+            onPress: () => router.replace('/')
+          },
           {
             text: 'Okay',
             onPress: () => router.replace('/screens/auth/login'),
@@ -48,6 +52,7 @@ const Profile = () => {
         ],
         { cancelable: false }
       );
+      // Exit the function to prevent rendering protected content
       return;
     }
 
@@ -79,16 +84,17 @@ const Profile = () => {
     } catch (error) {
       console.error('Error fetching user data:', error);
     }
-  }, [router])
+  }, [router]);
 
-  useEffect(() => {
+  // Use useFocusEffect to call getData whenever the screen gains focus.
+  // This ensures the login status is always checked when the user navigates here.
+  useFocusEffect(useCallback(() => {
     getData();
-  }, [getData]);
+  }, [getData]));
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
-
-      {loggedIn && (
+      {loggedIn ? (
         <>
           <View style={styles.profileTop}>
             <Text style={styles.heading}>Hello, {userData.name || 'Guest'}!</Text>
@@ -117,6 +123,9 @@ const Profile = () => {
           <TncCard />
           <LogoutDel />
         </>
+      ) : (
+        // Render nothing or a loading indicator while not logged in
+        null
       )}
     </ScrollView>
   );
