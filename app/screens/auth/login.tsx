@@ -80,95 +80,92 @@ const Login = () => {
     };
 
     return (
-        <>
-            <Stack.Screen
-                options={{
-                    headerTitle: 'Login - HireGlide',
-                    headerStyle: {
-                        backgroundColor: '#FFFFFF',
-                    },
-                    headerTintColor: '#000000',
-                    headerBackVisible: false,
-                    gestureEnabled: false,
-                }}
-            />
-            <StatusBar barStyle="dark-content" />
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{ flex: 1 }}
+            keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
+        >
+            <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                <ScrollView
+                    contentContainerStyle={styles.scrollContainer}
+                    keyboardShouldPersistTaps="handled"
+                >
+                    <Stack.Screen
+                        options={{
+                            headerTitle: 'Login - HireGlide',
+                            headerStyle: {
+                                backgroundColor: '#FFFFFF',
+                            },
+                            headerTintColor: '#000000',
+                            headerBackVisible: false,
+                            gestureEnabled: false,
+                        }}
+                    />
+                    <StatusBar barStyle="dark-content" />
+                    <View style={styles.loginScreen}>
+                        <Image
+                            source={require('@/assets/images/icon.png')}
+                            style={styles.logo}
+                        />
 
-            <KeyboardAvoidingView
-                behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-                style={{ flex: 1 }}
-                keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
-            >
-                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-                    <ScrollView
-                        contentContainerStyle={styles.scrollContainer}
-                        keyboardShouldPersistTaps="handled"
-                    >
-                        <View style={styles.loginScreen}>
-                            <Image
-                                source={require('@/assets/images/icon.png')}
-                                style={styles.logo}
-                            />
+                        <View style={styles.loginZone}>
+                            <Text style={styles.loginText}>Login</Text>
+                            <Text style={styles.loginTextPara}>
+                                Please enter your credentials to continue
+                            </Text>
 
-                            <View style={styles.loginZone}>
-                                <Text style={styles.loginText}>Login</Text>
-                                <Text style={styles.loginTextPara}>
-                                    Please enter your credentials to continue
-                                </Text>
+                            <View style={styles.loginCard}>
+                                <Text style={styles.cardTitle}>Sign in to your account</Text>
 
-                                <View style={styles.loginCard}>
-                                    <Text style={styles.cardTitle}>Sign in to your account</Text>
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder="Email Address"
+                                    placeholderTextColor="#999"
+                                    keyboardType="email-address"
+                                    autoCapitalize="none"
+                                    value={email}
+                                    onChangeText={setEmail}
+                                    autoComplete="email"
+                                />
 
-                                    <TextInput
-                                        style={styles.input}
-                                        placeholder="Email Address"
-                                        placeholderTextColor="#999"
-                                        keyboardType="email-address"
-                                        autoCapitalize="none"
-                                        value={email}
-                                        onChangeText={setEmail}
-                                        autoComplete="email"
-                                    />
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder="Password"
+                                    placeholderTextColor="#999"
+                                    secureTextEntry
+                                    value={password}
+                                    onChangeText={setPassword}
+                                    autoComplete="password"
+                                />
 
-                                    <TextInput
-                                        style={styles.input}
-                                        placeholder="Password"
-                                        placeholderTextColor="#999"
-                                        secureTextEntry
-                                        value={password}
-                                        onChangeText={setPassword}
-                                        autoComplete="password"
-                                    />
+                                <TouchableOpacity
+                                    style={styles.button}
+                                    onPress={handleLogin}
+                                >
+                                    <Text style={styles.buttonText}>Sign In</Text>
+                                </TouchableOpacity>
+                            </View>
 
-                                    <TouchableOpacity
-                                        style={styles.button}
-                                        onPress={handleLogin}
-                                    >
-                                        <Text style={styles.buttonText}>Sign In</Text>
-                                    </TouchableOpacity>
-                                </View>
+                            <View style={styles.linksContainer}>
+                                <TouchableOpacity
+                                    onPress={() =>
+                                        router.push('/screens/auth/registration')
+                                    }
+                                >
+                                    <Text style={styles.forgotPassword}>Register Now!</Text>
+                                </TouchableOpacity>
 
-                                <View style={styles.linksContainer}>
-                                    <TouchableOpacity
-                                        onPress={() =>
-                                            router.push('/screens/auth/registration')
-                                        }
-                                    >
-                                        <Text style={styles.forgotPassword}>Register Now!</Text>
-                                    </TouchableOpacity>
-
-                                    <TouchableOpacity
-                                        onPress={() => router.push('/')}
-                                    >
-                                        <Text style={styles.forgotPassword}>Back to Home</Text>
-                                    </TouchableOpacity>
-                                </View>
+                                <TouchableOpacity
+                                    onPress={() => router.push('/')}
+                                >
+                                    <Text style={styles.forgotPassword}>Back to Home</Text>
+                                </TouchableOpacity>
                             </View>
                         </View>
-                    </ScrollView>
-                </TouchableWithoutFeedback>
-            </KeyboardAvoidingView>
-        </>
+                    </View>
+                </ScrollView>
+            </TouchableWithoutFeedback>
+        </KeyboardAvoidingView>
     );
 };
 
